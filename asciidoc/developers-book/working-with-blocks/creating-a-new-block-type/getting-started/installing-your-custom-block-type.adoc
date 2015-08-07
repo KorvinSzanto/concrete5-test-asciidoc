@@ -1,0 +1,7 @@
+When your custom block type is ready, you can simply install it from Dashboard > Stack & Blocks > Block Types.
+
+image:https://www.concrete5.org/files/5314/2266/2763/install_custom_block_type.png[Install Custom Block Type]
+
+link:/developers-book/working-with-blocks/creating-a-new-block-type/getting-started/sample-block-hello-world/[Sample Block: Hello World »]
+
+link:/developers-book/working-with-blocks/creating-a-new-block-type/getting-started/adding-saving-and-rendering/[« Adding, Saving & Rendering]

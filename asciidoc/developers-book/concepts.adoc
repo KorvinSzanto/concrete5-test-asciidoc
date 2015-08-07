@@ -1,0 +1,26 @@
+Basic Concepts
+--------------
+
+While easy for end users to understand, Concrete5 is a powerful and complex application. Before diving in to development with Concrete5, one should understand the main concepts and vocabulary of a Concrete5 site.
+
+=== Overview Video
+
+If you want a quick summary before diving in, this video's less than four minutes, and should acquaint you with many of Concrete5's core concepts:
+
+==== link:/developers-book/concepts/front-end-content/[Front-End Content – Pages, Areas, Blocks, Themes & Stacks]
+
+==== link:/developers-book/concepts/files/[Files]
+
+==== link:/developers-book/concepts/users-groups/[Users, Groups & Authentication]
+
+==== link:/developers-book/concepts/permissions-and-workflow/[Permissions & Workflow]
+
+==== link:/developers-book/concepts/attributes/[Attributes]
+
+==== link:/developers-book/concepts/conversations/[Conversations]
+
+==== link:/developers-book/concepts/jobs/[Jobs]
+
+==== link:/developers-book/concepts/packages/[Packages]
+
+==== link:/developers-book/concepts/advanced/[Advanced]

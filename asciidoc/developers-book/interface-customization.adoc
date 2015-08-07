@@ -1,0 +1,3 @@
+There're many ways to customize the concrete5 interface in order to provide custom help, additional rich text editor functionality and more. Read on for more information.
+
+==== link:/developers-book/interface-customization/rich-text-editor/[Rich Text Editor]

@@ -1,0 +1,15 @@
+==== link:/developers-book/packages/overview/[Overview]
+
+==== link:/developers-book/packages/directory-icon-controller/[Directory, Icon and Controller]
+
+==== link:/developers-book/packages/installation/[Installation]
+
+==== link:/developers-book/packages/modifying-startup-routine-from-package/[Modifying the Concrete5 Startup Routine from a Package]
+
+==== link:/developers-book/packages/handling-package-upgrades/[Handling Package Upgrades]
+
+==== link:/developers-book/packages/handling-uninstallation/[Handling Uninstallation]
+
+==== link:/developers-book/packages/adding-custom-code-to-packages/[Advanced: Adding Custom Code Libraries and Third Party Libraries in a Package]
+
+==== link:/developers-book/packages/custom-database-tables-in-packages/[Advanced: Custom Database Tables]

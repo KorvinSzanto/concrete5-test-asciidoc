@@ -1,0 +1,25 @@
+At this point, it might be easiest to see a simple, sample block type in action.
+
+=== Download Block Type
+
+Hello World Block Type (http://www.concrete5.org/files/6514/3698/3270/hello_world.zip[Download ZIP file])
+
+Just install this block type and add/edit it through Concrete5. It creates the database table btHelloWorld and saves its data simply. It even contains a simple example of block validation.
+
+=== Adding To a Page
+
+image:https://www.concrete5.org/files/2114/2266/2754/block_type_hw1.png[Add Hello World Block to Page]
+
+=== Dialog
+
+image:https://www.concrete5.org/files/9314/2266/2755/block_type_hw2.png[Add Hello World Block Dialog]
+
+=== Validation Example
+
+image:https://www.concrete5.org/files/1214/2266/2756/block_type_hw3.png[Validation Example]
+
+=== Output Example
+
+image:https://www.concrete5.org/files/7714/2266/2757/block_type_hw4.png[Output Example]
+
+link:/developers-book/working-with-blocks/creating-a-new-block-type/getting-started/installing-your-custom-block-type/[« Installing Your Custom Block Type]

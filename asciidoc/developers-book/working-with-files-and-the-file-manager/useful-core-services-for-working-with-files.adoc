@@ -1,0 +1,74 @@
+There are a number of useful core services available for working with files. Typically these don't involve concrete5 – they're general purpose helper methods.
+
+=== Getting the Service
+
+You can get access to the general file service this way:
+
+[code,php]
+----
+$service = \Core::make('helper/file');
+----
+
+This returns an instance of the http://concrete5.org/api/class-Concrete.Core.File.Service.File.html[\Concrete\Core\File\Service\File] object.
+
+=== Useful Methods
+
+Here are some things you can do with this service.
+
+==== Retrieve a list of files in a Directory
+
+[code,php]
+----
+$files = $service->getDirectoryContents('/absolute/path/to/directory');
+----
+
+==== Recursively copy all items in a source directory to a target directory
+
+[code,php]
+----
+$service->copyAll('/absolute/path/to/directory', '/target/directory');
+----
+
+==== Remove all files from a directory
+
+[code,php]
+----
+$service->removeAll('/absolute/path/to/directory');
+----
+
+==== Force the Download of a File
+
+[code,php]
+----
+$service->forceDownload('/path/to/my/file.zip');
+----
+
+==== Get the Temporary Directory
+
+[code,php]
+----
+$temporaryDirectory = $service->getTemporaryDirectory();
+----
+
+==== Get a file's extension
+
+[code,php]
+----
+$extension = $service->getExtension($myFilename);
+----
+
+==== Compare Paths
+
+Checks if two path are the same, considering directory separator and OS case sensitivity.
+
+$isSame = $service->isSamePath($path1, $path2);
+
+=== API Reference
+
+There are additional methods available in this class. These are detailed in the API documentation:
+
+http://concrete5.org/api/class-Concrete.Core.File.Service.File.html[File Service API Reference]
+
+link:/developers-book/working-with-files-and-the-file-manager/file-storage-locations/[File Storage Locations »]
+
+link:/developers-book/working-with-files-and-the-file-manager/searching-and-sorting-with-the-filelist-object/[« Searching and Sorting with the FileList Object]

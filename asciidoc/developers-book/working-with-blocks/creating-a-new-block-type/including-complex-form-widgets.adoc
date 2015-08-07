@@ -1,0 +1,7 @@
+Check out the Form Widget appendix for a full list of Concrete5 service objects that can help you embed rich editing widgets like the file selector, page selector, user selector and more.
+
+link://www.concrete5.org/developers-book/appendix/form-widget-reference/[Form Widget Reference]
+
+link:/developers-book/working-with-blocks/creating-a-new-block-type/including-a-block-in-a-package/[Including a Block in a Package »]
+
+link:/developers-book/working-with-blocks/creating-a-new-block-type/interactive-blocks/[« Interactive Blocks]

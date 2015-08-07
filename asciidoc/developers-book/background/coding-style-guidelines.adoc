@@ -1,0 +1,166 @@
+=== PHP
+
+==== Coding Style
+
+From version 5.7 and onward, concrete5 is adopting the PHP Framework Interoperability Group's http://www.php-fig.org/psr/psr-2/[PSR-2] coding standard. This standard dictates a number of things, including spaces vs. tabs, brace placement, method naming, and more. Please read it and adhere to it.
+
+===== Tough Decision
+
+Like a lot in life, coding standards are deeply personal. I myself strongly disagree with several decisions in this standard (and, to spare myself the inevitable arguments, I'll leave which these are to your imagination.) That said, there is a lot of good in here, and I think it can only help the ecosystem. So I, too, will bite the bullet.
+
+We're in the same boat, people. Let's set sail!
+
+==== File Naming and Location
+
+From version 5.7 and onward, concrete5 is adopting a modified naming standard based on PHP Framework Interoperability Group's http://www.php-fig.org/psr/psr-4/[PSR-4]. Our built-in autoloader will automatically find classes that adhere to this system.
+
+All core libraries adhere to PSR-4 with *no* modifications. What does that mean? That means that our namespaced core libraries like the Page class
+
+[code,php]
+----
+\Concrete\Core\Page\Page
+----
+
+Can be found at
+
+[code,php]
+----
+concrete/src/Page/Page.php
+----
+
+PSR-4 basically states that projects can map different namespace prefixes to arbitrary starting directories. That's what we're doing.
+
+If you are writing code that belongs in the core source directory, you *must* adhere to PSR-4 as is. Classes must be capitalized, etc...
+
+===== Modifications
+
+For classes that do not exist within the src/ directory (such as block controllers, attribute controllers, etc...) We ask that you name your controllers with the same capitalization that PSR-4 requires, but you name your files with concrete5's classic lowercase + underscore method. These files will be converted by camelcasing those filenames on the fly.
+
+What does that mean? The blocks directory and its contents still looks the same as concrete5 before 5.7. For example, the Page List block's controller is still located at
+
+[code,php]
+----
+concrete/blocks/page_list/controller.php
+----
+
+If you were strictly following PSR-4, you would need to name your class
+
+[code,php]
+----
+controller
+----
+
+inside the name space
+
+[code,php]
+----
+\Concrete\Block\page_list
+----
+
+This is ugly and causes other problems. So instead, when we request the class
+
+[code,php]
+----
+\Concrete\Block\PageList\Controller
+----
+
+We *first* check to see if
+
+[code,php]
+----
+concrete/blocks/PageList/Controller.php
+----
+
+exists (since that is the default PSR-4 autoloading behavior.)
+
+If it does not (and it won't, for blocks, attributes, single page controllers, etc...) – then we uncamelcase using our own methods, starting at the item after blocks. Backslashes become directory separatores, and camelcasing becomes underscores.
+
+[code,php]
+----
+concrete/blocks/page_list/controller.php
+----
+
+And that's how we handle non-library classes in concrete5 5.7.
+
+==== Existing Code
+
+We have already taken care of moving files to support these updated naming and directory standards. For coding style (including spaces vs. tabs, braces, etc...) we will be modifying existing core code to support this code base as needed. This is not a high priority, but we will accept pull requests quickly that modify this code for us.
+
+===== Important Note
+
+If you submit a pull request for this type of cleanup, please keep each request to one file – for the sake of vetting your pull request. Please *do not* run the entire concrete5 source through a cleanup tool and send that to us. We could do that ourselves ;-)
+
+=== JavaScript
+
+==== Coding Style
+
+JavaScript should use the https://github.com/airbnb/javascript[Airbnb JavaScript Style Guide], with the following modifications:
+
+* Use four spaces for indention, for tool consistency and consistency with existing core code.
+* When saving a reference to "this," use "my" instead of "_this."
+
+==== File Naming and Location
+
+JavaScript file names should be all lowercase, with dashes the only non alphanumeric character allowed in the filenames before the extension.
+
+===== Yes
+
+* js/color-picker.js
+* js/core/jquery-ui.js
+
+===== No
+
+* js/ccm.whatever.js
+* js/MyFile.js
+* js/who_knows.js
+
+JavaScript should go in the standard js/ directories only. Unless it is explicitly allowed by the core (e.g. view.js files in blocks.)
+
+==== Existing Code
+
+While the style of our JavaScript is improving massively in 5.7, many of our file still need cleanup, and our JS naming definitely doesn't currently support these standards. *We will be handling the renaming of files as needed.* But we would love to have help with the style of the code itself.
+
+===== Important Note
+
+Again, if you submit a pull request for this type of cleanup, please keep each request to one or just a few files – for the sake of vetting your pull request. Please *do not* run the entire concrete5 source through a cleanup tool and send that to us. We could do that ourselves ;-)
+
+=== CSS/LESS
+
+==== Coding Style
+
+Your CSS/LESS is largely your business, but we do ask that all selectors be lowercased, with dashes as their delimiters. If coding something for the core, please prefix it with 'ccm-' and try and be consistent.
+
+==== File Naming and Location
+
+CSS file names should be all lowercase, with dashes the only non alphanumeric character allowed in the filenames before the extension.
+
+===== Yes
+
+* css/jquery-ui.css
+* css/redactor.css
+* css/conversations.css
+* css/jquery-rating.css
+
+===== No
+
+* css/MyLib.css
+* css/_whozits.css
+* css/ccm.spellchecker.css
+
+CSS should go in the standard css/ directories only. Unless it is explicitly allowed by the core (e.g. view.css files in blocks.)
+
+==== Existing Code
+
+Most of our CSS has been moved into LESS files as of 5.7. We will accept pull requests for minor syntax changes here and there, but we're generally pretty pleased with this cleanup so far, and it doesn't require too much.
+
+The names of our CSS files definitely don't currently support these standards. *We will be handling the renaming of files as needed.* Please do not submit pull requests renaming core files.
+
+===== Important Note
+
+Again, if you submit a pull request for this type of cleanup, please keep each request to one or just a few files – for the sake of vetting your pull request.
+
+=== Further Discussion
+
+These decisions have not been made lightly, and they're probably going to upset some (including some core developers – __gulp__). But hopefully this can lead to a cleaner, more uniform concrete5 source.
+
+For more discussion on this, including any addendums, additions or fixes, please post in the http://www.concrete5.org/community/forums/documentation_efforts/[Documentation Forum].

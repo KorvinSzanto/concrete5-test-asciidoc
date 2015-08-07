@@ -1,0 +1,7 @@
+==== link:/developers-book/packages/custom-database-tables-in-packages/overview/[Overview]
+
+==== link:/developers-book/packages/custom-database-tables-in-packages/legacy-db-xml-axmls/[Legacy Method: db.xml in the AXMLS format]
+
+==== link:/developers-book/packages/custom-database-tables-in-packages/db-xml-doctrine-xml-format/[db.xml in the Doctrine XML Format]
+
+==== link:/developers-book/packages/custom-database-tables-in-packages/doctrine-orm-entities/[Doctrine ORM Entities]

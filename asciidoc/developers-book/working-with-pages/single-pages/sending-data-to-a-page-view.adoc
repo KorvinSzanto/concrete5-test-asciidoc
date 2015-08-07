@@ -1,0 +1,85 @@
+Once you have a single page and a controller, you'll want to make use of the link between the two by sending data from the controller into the view. This is easily done by using $this->set('key', $value); from within your controller file.
+
+=== Example
+
+Say we want to list photo albums on our media page. We have the PHP class Foo\Media\Album and we'll retrieve a list of these album objects when browsing to our media page
+
+[code,php]
+----
+http://www.yoursite.com/media/
+----
+
+Here's our controller
+
+[code,php]
+----
+namespace Application\Controller\SinglePage;
+use Concrete\Core\Page\Controller\PageController;
+class Media extends PageController
+{
+ 
+    public function view()
+    {
+        $list = \Foo\Media\Album::getList();
+        $this->set('albums', $list);
+    }
+}
+----
+
+That's it. The array of photo albums will now be available within the application/single_pages/media/view.php template file in the local variablke $albums, since that's the name of the first parameter in our set() method.
+
+Let's take a look at our view.php file. Here's how we can link to a different method in our list of albums
+
+[code,php]
+----
+<ul>
+<?php
+foreach($albums as $album) { ?>
+ 
+    <li><a href="<?=URL::to('/media', 'view_album', $album->getAlbumID())?>"><?=$album->getAlbumName()?></a></li>
+ 
+<? } ?>
+</ul>
+----
+
+Let's break down what's happening here. For each entry in the albums array we print out a list item with a link inside it. The three parts of that link include
+
+1.  The path to the single page linked to
+2.  The method we want to run on the single page controller in question
+3.  One or more parameters we want to send into that method. The method must be set up to take the number of parameters we give it. Parameters are just passed as additional PHP function parameters, separated by commas.
+
+If you click on one of these links, the URL will look like this
+
+[code,php]
+----
+http://www.yoursite.com/media/view_album/4
+----
+
+If there's no view_album() method in the media controller, or there is but it doesn't have a parameter in it, the result will be a 404.
+
+[code,php]
+----
+public function view_album($albumID = null)
+{
+    $selectedAlbum = \Foo\Media\Album::getByID($albumID);
+    $this->set('albumID', $albumID);
+    $this->set('album', $selectedAlbum);
+}
+----
+
+Now, the $albumID variable and the $album variable will be available in the media single page view template. Now might be a good time to explore rendering a different view based on the fact that our controller method is view_album, rather than view.
+
+=== Submit back to the Current Page with Controller::action
+
+If you want to run a particular method on the current page, you don't need to include the single page path in the URL::to method. Just use the action() method on the $controller parameter that is automatically in the local scope. Here's how a form can submit back to the current page's "submit()" method in the controller:
+
+[code,php]
+----
+<form method="post" action="<?=$controller->action('submit')?>">
+ 
+</form>
+----
+
+link:/developers-book/working-with-pages/single-pages/rendering-custom-views-from-a-single-page-controller/[Rendering Custom Views from a Single Page Controller »]
+
+link:/developers-book/working-with-pages/single-pages/controllers/[« Controllers]

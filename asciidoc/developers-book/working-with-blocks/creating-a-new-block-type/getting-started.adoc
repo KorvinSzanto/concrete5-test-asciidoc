@@ -1,0 +1,8 @@
+It's easy to get started creating your own block type. Read on for more information.
+
+* link:/developers-book/working-with-blocks/creating-a-new-block-type/getting-started/overview/[Overview]
+* link:/developers-book/working-with-blocks/creating-a-new-block-type/getting-started/anatomy-of-a-block/[Anatomy of a Block]
+* link:/developers-book/working-with-blocks/creating-a-new-block-type/getting-started/php-controller/[PHP Controller]
+* link:/developers-book/working-with-blocks/creating-a-new-block-type/getting-started/adding-saving-and-rendering/[Adding, Saving & Rendering]
+* link:/developers-book/working-with-blocks/creating-a-new-block-type/getting-started/installing-your-custom-block-type/[Installing Your Custom Block Type]
+* link:/developers-book/working-with-blocks/creating-a-new-block-type/getting-started/sample-block-hello-world/[Sample Block: Hello World]
