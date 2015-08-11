@@ -1,13 +1,13 @@
 Concrete5 provides the http://concrete5.org/api/class-Concrete.Core.Page.PageList.html[Concrete\Core\Page\PageList] object to make it easy for developers to query Concrete5 for a list of pages based on different criteria. Any time you want to sort, search or otherwise filter a list of pages you should use this object, as it checks permissions, takes care of aliasing and provides a nice API to what is a fairly complex table structure underneath.
 
-[code,php]
+[source,php]
 ----
 $list = new \Concrete\Core\Page\PageList();
 ----
 
 By default, this list will include every page in your site, since it's not filtered in any way. It will exclude aliases, inactive pages (e.g. pages in the trash can or the drafts folder) and it will only include pages that the current user can see, based on permissions.
 
-[code,php]
+[source,php]
 ----
 $pages = $list->getResults();
 ----
@@ -18,21 +18,21 @@ This is an array of all the pages in the page list, with no limit. Each entry is
 
 Filter by a page type:
 
-[code,php]
+[source,php]
 ----
 $list->filterByPageTypeHandle('blog_entry');
 ----
 
 Include pages of several types
 
-[code,php]
+[source,php]
 ----
 $list->filterByPageTypeHandle(array('blog_entry', 'press_release'));
 ----
 
 Filter By Keywords (Simple)
 
-[code,php]
+[source,php]
 ----
 $list->filterByKeywords('foobar');
 ----
@@ -41,7 +41,7 @@ Filtering by keywords is a simple like search against the name, description or t
 
 Filter By Keywords (Full Text)
 
-[code,php]
+[source,php]
 ----
 $list->filterByFulltextKeywords('foobar');
 ----
@@ -52,14 +52,14 @@ Filters the name, description and text content fields using MySQL's FULLTEXT sea
 
 The PageList object contains a magic method to filter by attribute. Simply add a StudlyCapsed attribute handle after filterBy and pass the data into the attribute:
 
-[code,php]
+[source,php]
 ----
 $list->filterByExcludeFromNav(true);
 ----
 
 The attribute's type determines what kind of data it takes in its filter methods. For example, if the attribute is a topic, it can take a topic tree node:
 
-[code,php]
+[source,php]
 ----
 $node = \Concrete\Core\Tree\Node::getByID(10);
 $list->filterByBlogEntryTopic($node);
@@ -69,28 +69,28 @@ $list->filterByBlogEntryTopic($node);
 
 Sort by Post Date
 
-[code,php]
+[source,php]
 ----
 $list->sortByPublicDate();
 ----
 
 or
 
-[code,php]
+[source,php]
 ----
 $list->sortByPublicDateDescending();
 ----
 
 Sort by Name:
 
-[code,php]
+[source,php]
 ----
 $list->sortByName();
 ----
 
 Sort by Sitemap Display Order
 
-[code,php]
+[source,php]
 ----
 $list->sortByDisplayOrder();
 ----
@@ -99,14 +99,14 @@ $list->sortByDisplayOrder();
 
 Ignore Permissions
 
-[code,php]
+[source,php]
 ----
 $list->ignorePermissions();
 ----
 
 Include unusual pages:
 
-[code,php]
+[source,php]
 ----
 $list->includeInactivePages();
 $list->includeAliases();
@@ -119,7 +119,7 @@ $list->includeSystemPages();
 
 The PageList class has been completely rewritten in Concrete 5.7 as reliant on the http://doctrine-dbal.readthedocs.org/en/latest/reference/query-builder.html[Doctrine DBAL QueryBuilder]. You can grab the underlying QueryBuilder object in order to operate on it directly from any PageList object:
 
-[code,php]
+[source,php]
 ----
 $query = $list->getQueryObject();
 ----
@@ -128,7 +128,7 @@ $query = $list->getQueryObject();
 
 It's easy to subclass the PageList object. Here, take a look at a custom class that only displays pages of a certain type, with a custom attribute for handling whether pages are included:
 
-[code,php]
+[source,php]
 ----
 <?php
  
@@ -181,7 +181,7 @@ class ClassifiedList extends PageList
 
 Once you have filtered your PageList object, you can use getResults() to get the list of pages. Many times, however, you'll want to retrieve just few results at a time. For this, you'll want to use the Pagination object.
 
-[code,php]
+[source,php]
 ----
 $pagination = $list->getPagination();
 ----
@@ -196,21 +196,21 @@ If your PageList object is ignoring permissions, it simply returns a basic http:
 
 Once you have a Pagination object it's a simple matter to operate on it. You can get the total number of results
 
-[code,php]
+[source,php]
 ----
 print $pagination->getTotalResults();
 ----
 
 You can get the total number of pages:
 
-[code,php]
+[source,php]
 ----
 print $pagination->getTotalPages();
 ----
 
 You can determine whether paging is necessary
 
-[code,php]
+[source,php]
 ----
 $pagination->hasNexPage();
 $pagination->hasPreviousPage();
@@ -218,7 +218,7 @@ $pagination->hasPreviousPage();
 
 And you can get the current page's results:
 
-[code,php]
+[source,php]
 ----
 $pagination->setMaxPerPage(10)->setCurrentPage(2);
 $results = $pagination->getCurrentPageResults();
@@ -228,7 +228,7 @@ $results = $pagination->getCurrentPageResults();
 
 Common pagination output HTML is supported, including Bootstrap 2, Bootstrap 3, Basic Pagination, and Concrete5's default styling (which is heavily Bootstrap 3 inspired.)
 
-[code,php]
+[source,php]
 ----
 print $pagination->renderDefaultView(); // Outputs HTML for Bootstrap 3, useful in the Dashboard, etc…
 ----

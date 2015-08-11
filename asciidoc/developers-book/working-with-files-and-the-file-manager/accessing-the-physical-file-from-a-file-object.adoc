@@ -8,7 +8,7 @@ The File object gives us access to all the metadata about files, and lets us wor
 
 In these situations, we need access to what concrete5 refers to as a file **resource**. The file resource gives us access to the actual bytestream of a file. Here's how we get the file resource from a File object:
 
-[code,php]
+[source,php]
 ----
 $file = \File::getByID(3);
 $resource = $file->getFileResource();
@@ -26,7 +26,7 @@ Similarly, you can directly get the byte contents of a File object using getFile
 
 === Example: Zipping multiple files into a ZIP Archive
 
-[code,php]
+[source,php]
 ----
 $fileIDs = array(1,2,3);
 $zip = new ZipArchive;

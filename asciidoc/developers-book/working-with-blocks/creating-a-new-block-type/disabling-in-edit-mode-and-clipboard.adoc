@@ -1,6 +1,6 @@
 While most blocks can coexist with Concrete5's editing environment without issue, it can be useful to display a different view layer for a block while a page is in edit mode. Perhaps your block employs some custom CSS that places its z-index higher than Concrete5's edit layer, or it uses Flash or other technologies that don't always work well with our overlay. Maybe its JavaScript and Concrete5's JavaScript conflict. In these cases, it's useful to disable your block's view in edit mode. Here's how the YouTube block does it.
 
-[code,php]
+[source,php]
 ----
 <?
 $c = Page::getCurrentPage();
@@ -27,7 +27,7 @@ The "Add from Clipboard" view from the Add Panel attempts to render the view lay
 
 The HTML block is an excellent example of using a custom clipboard template. Since anything can be in the HTML block, and this could lead to problems, we sanitize the view when the HTML block is rendered in the clipboard. From concrete/blocks/html/scrapbook.php:
 
-[code,php]
+[source,php]
 ----
 <?php defined('C5_EXECUTE') or die('Access Denied.'); ?>
  

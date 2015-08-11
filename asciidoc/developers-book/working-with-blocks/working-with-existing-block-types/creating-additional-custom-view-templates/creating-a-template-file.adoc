@@ -8,7 +8,7 @@ You'll likely have an *application/blocks* directory, probably empty. Make sure 
 
 Now, decide what you want your custom template to be called. The name of your template file will translate directly into the name of your custom template, only with Concrete5's standard uncamelcasing applied. If, for example, you want to create a custom template named "Site Map Tree" for the Auto-Nav, you're going to name your custom PHP file "site_map_tree.php". Copy the default view.php file from the core Auto-Nav block type directory into your newly created custom template location.
 
-[code,php]
+[source,php]
 ----
 cp concrete/blocks/autonav/view.php application/blocks/autonav/templates/site_map_tree.php
 ----

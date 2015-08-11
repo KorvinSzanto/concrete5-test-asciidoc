@@ -4,7 +4,7 @@ When building custom blocks types or single page editing interfaces, it's easy f
 
 Let's say you have this form in your block or page template, that you'd like to swap out with Redactor:
 
-[code,php]
+[source,php]
 ----
 <div class="form-group">
     <label class="control-label">Notes</label>
@@ -14,7 +14,7 @@ Let's say you have this form in your block or page template, that you'd like to 
 
 Swapping this out with Concrete5's Redactor editor is as simple as changing the textarea line to this:
 
-[code,php]
+[source,php]
 ----
 <div class="form-group">
     <label class="control-label">Notes</label>
@@ -33,7 +33,7 @@ By default, outputStandardEditor() enables access to the concrete5 file manager 
 
 Let's disable access to the file manager and the sitemap.
 
-[code,php]
+[source,php]
 ----
 $editor = Core::make('editor');
 $editor->setAllowFileManager(false);
@@ -42,7 +42,7 @@ $editor->setAllowSitemap(false);
 
 In 5.7.4.2 and greater, we can also only include a subset of plugins:
 
-[code,php]
+[source,php]
 ----
 $editor->getPluginManager()->deselect(array('table', 'underline, 'specialcharacters'));
 $editor->getPluginManager()->select('fontsize');

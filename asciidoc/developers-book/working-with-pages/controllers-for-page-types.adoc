@@ -12,7 +12,7 @@ Create a controller file at application/controllers/page_types/blog_entry.php
 
 The controller class should have the StudlyCapsed version of your page type handle, within the \Concrete\Controller\PageType namespace.
 
-[code,php]
+[source,php]
 ----
 <?php
  

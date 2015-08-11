@@ -10,7 +10,7 @@ First, we need to add a custom PageTheme class file to our theme. This class ext
 
 Create the file application/themes/urbanic/page_theme.php. In it, add this code:
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Application\Theme\Urbanic;
@@ -37,7 +37,7 @@ We're planning on adding more, and developers can add support for them as well â
 
 Add this line to the class file you created:
 
-[code,php]
+[source,php]
 ----
 protected $pThemeGridFrameworkHandle = 'bootstrap3'
 ----
@@ -48,7 +48,7 @@ Now, go back to the area you made on the previous page.
 
 If you want to make this area griddable *and* automatically add a container class to the blocks that are added to it, add this line to the area.
 
-[code,php]
+[source,php]
 ----
 <?php
 $a = new Area('Welcome');
@@ -63,7 +63,7 @@ Make sure this area *isn't* contained within a DIV with the class "container." I
 
 If the area is already contained within a container, or you don't want to force a container around the blocks added to this grid, add these lines instead:
 
-[code,php]
+[source,php]
 ----
 <?php
 $a = new Area('Welcome');

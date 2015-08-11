@@ -24,7 +24,7 @@ Before we start on making everything customizable, lets make sure everything wor
 
 Choose a good variable name here. *Important: This variable must end with -color.* There are multiple different variable types present in Concrete5's style customizer, and their types and the special parameters available to those types dictate how they have to be suffixed. You'll learn much more about this later – but for now make sure that any color variable ends with -color.
 
-[code,php]
+[source,php]
 ----
 @primary-action-color: #ff7600;
 ----
@@ -33,7 +33,7 @@ Next, import the variables file that we just created in our LESS file. If we don
 
 Now, swap out all instances of that color in the templatemo_style.less file with this variable. For example, a background-color to the button class will look like this:
 
-[code,php]
+[source,php]
 ----
 .btn-orange {
     background-color: @primary-action-color;
@@ -49,14 +49,14 @@ Finally, we have to change how we include this file in our theme. Remember, we c
 
 Opening our page template file and you'll see
 
-[code,php]
+[source,php]
 ----
 link href="<?=$view->getThemePath()?>/css/templatemo_style.css"  rel='stylesheet' type='text/css'>
 ----
 
 Swap that out with this:
 
-[code,php]
+[source,php]
 ----
     <link href="<?=$view->getStylesheet('templatemo_style.less')?>" rel='stylesheet' type='text/css'>
 ----

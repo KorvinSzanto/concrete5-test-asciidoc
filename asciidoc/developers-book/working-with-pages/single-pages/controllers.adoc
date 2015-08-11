@@ -8,21 +8,21 @@ A core bug in version 5.7.3.1 and earlier of 5.7 may prevent portions of this fr
 
 Say you have a single page at
 
-[code,php]
+[source,php]
 ----
 application/single_pages/media/view.php
 ----
 
 This single pas has already been created via the Dashboard single pages interface, and is rendering at
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/index.php/media/
 ----
 
 To create a controller bound to this single page, create an empty file at application/controllers/single_page/media.php. Next, open this file, and add these lines of code:
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Application\Controller\SinglePage;
@@ -40,7 +40,7 @@ The name space of any single page controller in the root application/ directory 
 
 You can add a page to the dashboard just as easily. So if your page is located at /index.php/dashboard/ticketing/order, your controller be found at application/controllers/single_page/dashboard/ticketing/order.php, and look like this:
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Application\Controller\SinglePage\Dashboard\Ticketing;
@@ -60,14 +60,14 @@ class Order extends DashboardPageController
 
 You can create an empty controller for a single page, but this controller doesn't do anything until you add methods to it. The methods you add will correspond to the URLs you want this single page to respond to. For example, take our media page:
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/media/
 ----
 
 If you want to run custom code when this page is visited, create the following method in the controller:
 
-[code,php]
+[source,php]
 ----
 public function view()
 {
@@ -76,7 +76,7 @@ public function view()
 
 The view() method is automatically run (if it exists) whenever a single page is browsed to. But it gets more interesting when you add additional routes on the single page URL:
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/media/add
 http://www.yoursite.com/media/list
@@ -89,14 +89,14 @@ These URLs will automatically run the add(), list() and album_updated() methods 
 
 Check this URL
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/media/list/15
 ----
 
 It will automatically route to the list() method in the Controller. But since there is a segment in the URL after list(), the list() method must either take an optional or required initial parameter
 
-[code,php]
+[source,php]
 ----
 public function list($albumID = null)
 {
@@ -107,14 +107,14 @@ If it doesn't, browsing to this URL (or a URL with any number of parameters afte
 
 Multiple parameters are just as easy. Say you have a search single page added at /search and you want to filter by year, then month:
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/search/2015/02/
 ----
 
 Just create this method in your controller
 
-[code,php]
+[source,php]
 ----
 public function view($year = null, $month = null)
 {

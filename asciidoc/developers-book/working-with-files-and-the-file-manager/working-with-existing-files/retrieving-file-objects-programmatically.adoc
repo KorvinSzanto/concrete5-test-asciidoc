@@ -2,7 +2,7 @@
 
 All File objects have a unique numerical ID. If you know the exact numerical ID of the page you want to work with, use this code:
 
-[code,php]
+[source,php]
 ----
 $f = \File::getByID(1); // Retrieves the File object with an ID of 1.
 ----
@@ -11,14 +11,14 @@ $f = \File::getByID(1); // Retrieves the File object with an ID of 1.
 
 Once you have a File object, there's a lot you can do with it. All methods on the http://concrete5.org/api/class-Concrete.Core.File.File.html[Concrete\Core\File\File] object are available to you, as well as all methods in the http://concrete5.org/api/class-Concrete.Core.File.Version.html[Concrete\Core\File\Version] object. Every time you call a method on a File object, if the File class itself doesn't contain the method, the approved version of the File object will be retrieved, and that method will be run on it. For example, taking the $f File object above:
 
-[code,php]
+[source,php]
 ----
 print $f->getFileID();
 ----
 
 This retrieves "1" – by running the getFileID() method on the $f object itself.
 
-[code,php]
+[source,php]
 ----
 print $f->getURL();
 ----
@@ -29,7 +29,7 @@ This retrieves "http://www.mysite.com/1234/1234/1234/foo.txt" – the URL of th
 
 Most of the time you'll want to worry about the approved version of the File. After all, this is the version that has specifically been approved through the file manager (or, it's the most recent version if a specific approved version hasn't been selected.) Advanced applications might need more flexibility, however. If, for example, you know the approved version of the File isn't the most recent one, here's how you might work with them independently:
 
-[code,php]
+[source,php]
 ----
 $approved = $f->getApprovedVersion(); // Retrieves the approved version of a File
 $recent = $f->getRecentVersion(); // Retrieves the most recent version of a File

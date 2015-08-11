@@ -2,7 +2,7 @@ Any developers who have used Concrete5 to build block types or custom packages i
 
 === Example
 
-[code,php]
+[source,php]
 ----
 <?xml version="1.0"?>
 <schema version="0.3">

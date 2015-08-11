@@ -4,7 +4,7 @@ There are a number of useful core services available for working with files. Typ
 
 You can get access to the general file service this way:
 
-[code,php]
+[source,php]
 ----
 $service = \Core::make('helper/file');
 ----
@@ -17,42 +17,42 @@ Here are some things you can do with this service.
 
 ==== Retrieve a list of files in a Directory
 
-[code,php]
+[source,php]
 ----
 $files = $service->getDirectoryContents('/absolute/path/to/directory');
 ----
 
 ==== Recursively copy all items in a source directory to a target directory
 
-[code,php]
+[source,php]
 ----
 $service->copyAll('/absolute/path/to/directory', '/target/directory');
 ----
 
 ==== Remove all files from a directory
 
-[code,php]
+[source,php]
 ----
 $service->removeAll('/absolute/path/to/directory');
 ----
 
 ==== Force the Download of a File
 
-[code,php]
+[source,php]
 ----
 $service->forceDownload('/path/to/my/file.zip');
 ----
 
 ==== Get the Temporary Directory
 
-[code,php]
+[source,php]
 ----
 $temporaryDirectory = $service->getTemporaryDirectory();
 ----
 
 ==== Get a file's extension
 
-[code,php]
+[source,php]
 ----
 $extension = $service->getExtension($myFilename);
 ----

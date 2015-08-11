@@ -6,14 +6,14 @@ To display a custom installation message, simply create a file at **packages/pac
 
 Need to include a form on this page? Just add it like you would to any page, and check the post from within the install() method.
 
-[code,php]
+[source,php]
 ----
 <input type="checkbox" name="installSampleContent" value="1" /> Install sample content.
 ----
 
 Then, from within the controller.php install() method
 
-[code,php]
+[source,php]
 ----
 public function install()
 {

@@ -2,7 +2,7 @@ Concrete5 contains a powerful permissions system. By default, much of this compl
 
 At its core, Concrete5 uses a Permissions *Checker* class (the "Permissions" class that is seen in the code frequently) and developers pass objects into this checker class.
 
-[code,php]
+[source,php]
 ----
 $c = Page::getByPath('/path/to/page');
 $pc = new Permissions($c);

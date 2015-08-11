@@ -4,7 +4,7 @@ Concrete5 has similar functions – but it doesn't use PHP's include. Why? For 
 
 So, how do you use something like include() in Concrete5? You use the inc() method, which is found in the \Concrete\Core\View\View class. The instance of the current view is injected into your theme automatically, in this variable:
 
-[code,php]
+[source,php]
 ----
 $view
 ----
@@ -13,7 +13,7 @@ Right now, our Urbanic theme has one page template – Full – so it's not c
 
 First, create an elements directory in the theme directory.
 
-[code,php]
+[source,php]
 ----
 mkdir themes/urbanic/elements
 ----
@@ -22,14 +22,14 @@ Create a file named header.php and a file named footer.php in this directory.
 
 Then, copy all HTML from the start of the tag to the start of the Main area. Move this HTML in header.php. Replace this HTML with
 
-[code,php]
+[source,php]
 ----
 $view->inc('elements/header.php');
 ----
 
 For the footer.php, copy all HTML from the DIV with the class templatemo-footer down to the closing tag. Replace this HTML with
 
-[code,php]
+[source,php]
 ----
 $view->inc('elements/footer.php');
 ----
@@ -40,7 +40,7 @@ Now, when you create additional page templates, the same header.php and footer.p
 
 Since inc() is a method on an object, variables in the local scope of your page template won't be passed into the inc() method. If you need to pass a variable into the file included by $view->inc(), you can do so like this
 
-[code,php]
+[source,php]
 ----
 $tab = 'tweets';
 // I want to pass $tab into my header.

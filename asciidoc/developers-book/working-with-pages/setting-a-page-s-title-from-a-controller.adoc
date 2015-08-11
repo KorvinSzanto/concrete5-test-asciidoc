@@ -13,7 +13,7 @@ This will return an instance of the \Concrete\Core\Html\Service\Seo object, whic
 
 Use this service object to set your site's title from anywhere, or modify the existing title of the page. For example, let's say you want to render a custom view for a single page at a controller method:
 
-[code,php]
+[source,php]
 ----
 public function view_album($albumID = null)
 {
@@ -26,7 +26,7 @@ public function view_album($albumID = null)
 
 While this method will work to render the albums list – the name of the page will be unchanged. Why not change the page's name as well?
 
-[code,php]
+[source,php]
 ----
 public function view_album($albumID = null)
 {
@@ -41,7 +41,7 @@ public function view_album($albumID = null)
 
 This can even work from a block view. Check out how the Page List block listens for the active topic filtering a page, and then modifies the page's title accordingly:
 
-[code,php]
+[source,php]
 ----
 public function action_filter_by_topic($treeNodeID = false, $topic = false)
 {

@@ -32,7 +32,7 @@ All classes in Concrete5 are now namespaced. If the classes reside in the *src/*
 
 While at first glance Concrete5.7 themes will appear the same as their 5.6 counterparts, there's quite a lot that's new about them. For example, a new method is required around your theme page templates' container DIVs
 
-[code,php]
+[source,php]
 ----
 <div class="<?=$c->getContainerClass()?>">
 ----
@@ -85,28 +85,28 @@ In legacy Concrete5, helpers were strictly loaded based on path. Now things are 
 
 The legacy Loader::helper() method exists, but it is deprecated. Examine the following code:
 
-[code,php]
+[source,php]
 ----
 $mh = Loader::helper('mail');
 ----
 
 This code is the same as calling
 
-[code,php]
+[source,php]
 ----
 $mh = Core::make('helper/mail');
 ----
 
 Loader::helper() is simply a shorthand for running Core::make('helper/$class') where $class is what you've passed in to helper. How does 5.7 know what "helper/mail" is? It's a service, and it's been registered in **\Concrete\Core\Mail\MailServiceProvider**. This file is responsible for running code that looks like this:
 
-[code,php]
+[source,php]
 ----
 $this->app->bind('helper/mail', 'Concrete\Core\Mail\Service');
 ----
 
 How does Concrete5 know to call the register() method within this class that actually does the binding? It's a registered service provide found within – you guessed it – **concrete/config/app.php**:
 
-[code,php]
+[source,php]
 ----
 'providers'           => array(
     ...

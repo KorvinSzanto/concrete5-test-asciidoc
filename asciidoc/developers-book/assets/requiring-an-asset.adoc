@@ -4,7 +4,7 @@ Once you have an asset or an asset group defined, it's simple to request that it
 
 Make sure this code exists within your page type or single page controller.
 
-[code,php]
+[source,php]
 ----
 public function view()
 {
@@ -16,7 +16,7 @@ public function view()
 
 Make sure this code exists within your page type or single page controller.
 
-[code,php]
+[source,php]
 ----
 public function view()
 {
@@ -28,7 +28,7 @@ public function view()
 
 Make sure this code exists within your block controller.
 
-[code,php]
+[source,php]
 ----
 public function add()
 {
@@ -40,7 +40,7 @@ public function add()
 
 Make sure this code exists within your block controller.
 
-[code,php]
+[source,php]
 ----
 public function registerViewAssets()
 {

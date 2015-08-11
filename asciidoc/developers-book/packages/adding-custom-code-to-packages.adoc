@@ -1,6 +1,6 @@
 Packages will often need to include custom PHP code for some of their functionality. For example, when adding our custom event to the on_start() method, it will be smarter for us to include this functionality in a separate custom script, rather than directly in the on_start() method. So instead of this:
 
-[code,php]
+[source,php]
 ----
 public function on_start()
 {
@@ -16,7 +16,7 @@ public function on_start()
 
 Let's do this:
 
-[code,php]
+[source,php]
 ----
 public function on_start()
 {
@@ -47,7 +47,7 @@ Fortunately, 5.7.4 makes it easy to ignore this and work around it in a couple d
 
 First, you can easily register custom autoloaders to points within the src/ directory. Let's say instead of Concrete\Package\Statistics\Src\Page\PageChecker we wanted to map this to MyVendor\ConcreteStatistics\Page\PageChecker. We'd just add this to our controller.php
 
-[code,php]
+[source,php]
 ----
 protected $pkgAutoloaderRegistries = array(
     'src/MyVendor/Statistics' => '\MyVendor\ConcreteStatistics'
@@ -56,7 +56,7 @@ protected $pkgAutoloaderRegistries = array(
 
 Now, anything found inside src/MyVendor/Statistics/ will begin its namespace with MyVendor\ConcreteStatistics. So our page checker's class would be
 
-[code,php]
+[source,php]
 ----
 namespace MyVendor\ConcreteStatistics\Page;
 class PageChecker
@@ -66,14 +66,14 @@ class PageChecker
 
 And the file system would look like:
 
-[code,php]
+[source,php]
 ----
 packages/statistics/src/MyVendor/Statistics/Page/PageChecker.php
 ----
 
 and out on_start() method would look like this:
 
-[code,php]
+[source,php]
 ----
 public function on_start()
 {
@@ -92,7 +92,7 @@ and its class is *automatically* generated as Concrete\Package\YourPackage\Src\C
 
 Fortunately, you *can* remove \Src from this namespace as well. Just add this boolean to your package's controller.php
 
-[code,php]
+[source,php]
 ----
 $pkgAutoloaderMapCoreExtensions = true;
 ----
@@ -101,7 +101,7 @@ and **make sure that you move any auto-mapped src/ files from within packages/yo
 
 From there on, all files found in src/ in your package no longer need to have \Src in their namespace. Your custom captcha controller's class would be
 
-[code,php]
+[source,php]
 ----
 namespace Concrete\Package\YourPackage\Captcha;
 class YourCustomCaptchaController
@@ -111,7 +111,7 @@ class YourCustomCaptchaController
 
 And the file system would look like:
 
-[code,php]
+[source,php]
 ----
 packages/your_package/src/Concrete/Captcha/YourCustomCaptchaController.php
 ----

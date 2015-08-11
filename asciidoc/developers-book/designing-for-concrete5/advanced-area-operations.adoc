@@ -6,7 +6,7 @@ Sometimes it can be useful to know how many blocks are in an area. This code Let
 
 ==== Regular Area
 
-[code,php]
+[source,php]
 ----
 <?php
 $a = new Area("Main");
@@ -15,7 +15,7 @@ print $a->getTotalBlocksInArea($c);
 
 ==== Global Area
 
-[code,php]
+[source,php]
 ----
 $a = new GlobalArea("Header Nav");
 print $a->getTotalBlocksInArea();
@@ -23,7 +23,7 @@ print $a->getTotalBlocksInArea();
 
 This can be especially useful when combined with the current page's "isEditMode()" method, which checks to see if the current page is checked out for editing. With this snippet, we can display some content in the page only if there are blocks in an area, or if the page is in edit mode.
 
-[code,php]
+[source,php]
 ----
 $as = new GlobalArea('Header Search');
 $blocks = $as->getTotalBlocksInArea();
@@ -43,7 +43,7 @@ if ($displayThirdColumn) { ?>
 
 The following snippet of code sets automatic custom templates based on block type. Any image blocks uploaded will automatically have their custom template set to "theme_pic". Any content blocks uploaded will be set to "paragraphs":
 
-[code,php]
+[source,php]
 ----
 $a = new Area('Main');
 $a->setCustomTemplate('image', 'theme_pic');
@@ -55,7 +55,7 @@ $a->display($c);
 
 If you want to retrieve the block objects in an area without displaying them (so that you can work with them, check them, manipulate them, etc...) you can do so with Area::getAreaBlocksArray()
 
-[code,php]
+[source,php]
 ----
 $a = new Area('Main');
 $blocks = $a->getAreaBlocksArray($c);

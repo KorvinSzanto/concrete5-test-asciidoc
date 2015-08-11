@@ -4,7 +4,7 @@ controller.php contains information about our block, as well as methods that aut
 
 First, we have to give our block the proper namespace. Since this block is a custom Concrete5 block living in the application/ directory, the first segment is **Application**. Next, we add *Block* (since all blocks have this as their second namespace segment), and finally the camelcased version of block type handle. So, if our block is has the handle hello_world, this would be our namespace:
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Application\Block\HelloWorld;
@@ -14,7 +14,7 @@ namespace Application\Block\HelloWorld;
 
 Next, we have to include the core block controller from Concrete5, which our Controller class will extend.
 
-[code,php]
+[source,php]
 ----
 use Concrete\Core\Block\BlockController;
 ----
@@ -23,7 +23,7 @@ use Concrete\Core\Block\BlockController;
 
 Finally, let's create our class.
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Application\Block\HelloWorld;
@@ -130,7 +130,7 @@ Returns the block type's name, as it will be shown in the Dashboard and the Add 
 
 Returns a short description of the block type.
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Application\Block\HelloWorld;

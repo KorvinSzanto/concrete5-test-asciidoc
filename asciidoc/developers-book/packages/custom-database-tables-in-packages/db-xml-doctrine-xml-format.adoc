@@ -17,7 +17,7 @@ http://github.com/concrete5/doctrine-xml
 
 Here's an example of creating the Users table in Doctrine XML.
 
-[code,php]
+[source,php]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <schema

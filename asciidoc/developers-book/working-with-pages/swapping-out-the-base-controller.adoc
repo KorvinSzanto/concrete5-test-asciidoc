@@ -1,6 +1,6 @@
 Does some built of business logic in your site have to be available or run on every page? You might need to swap out the base page controller for your own custom page controller. This can be done by rebinding the "controller/page/default" pointer in the Concrete5 class loader to point to your own custom page controller class.
 
-[code,php]
+[source,php]
 ----
 public function on_start()
 {

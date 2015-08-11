@@ -4,7 +4,7 @@ Before we continue working on our Urbanic theme, we should talk about some commo
 
 If you've built your HTML template with particular greedy styles – global paragraph styles that modify line heights, styles on lists or list items, these can interfere with the Concrete5 user interface. This is because the Concrete5 toolbar and panels exist on the same page as your styles. All Concrete5 styles are namespaced within the .ccm-ui CSS class, but if theme styles are greedy, they can override these styles anyway. Fortunately, it's easy to make sure your styles don't conflict with Concrete5, just make sure certain greedy styles are referenced this way:
 
-[code,php]
+[source,php]
 ----
 .ccm-page p
 .ccm-page ul li

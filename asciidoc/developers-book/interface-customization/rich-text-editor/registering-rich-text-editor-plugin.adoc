@@ -2,7 +2,7 @@ This requires version 5.7.4 or greater
 
 It is easy to register a custom plug-in for the rich text editor. The following code registers custom clips plug-in, along with JavaScript and CSS used by the plugin. Finally the plug-in is registered to the active rich text editor, which is an object that implements the \Concrete\Core\Editor\EditorInterface interface.
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Concrete\Package\ClipsPlugin;
@@ -32,11 +32,11 @@ class Controller extends \Concrete\Core\Package\Package
     {
         $al = AssetList::getInstance();
         $al->register(
-            'javascript', 'editor/plugin/clips', 'js/redactor/clips.js', 
+            'javascript', 'editor/plugin/clips', 'js/redactor/clips.js',
                             array(), 'clips_plugin'
         );
         $al->register(
-            'css', 'editor/plugin/clips', 'css/redactor/clips.css', 
+            'css', 'editor/plugin/clips', 'css/redactor/clips.css',
                             array(), 'clips_plugin'
         );
         $al->registerGroup('editor/plugin/clips', array(

@@ -4,7 +4,7 @@ Once you have your package's Controller file created, it's a simple matter to ad
 
 Create a single_pages and controllers directories within your package's directory.
 
-[code,php]
+[source,php]
 ----
 mkdir packages/game_system
 mkdir packages/game_system/single_pages
@@ -22,7 +22,7 @@ Create your single page at packages/game_system/single_pages/dashboard/system/ga
 
 Create the controller at packages/game_system/controllers/single_page/dashboard/system/game.php. Make sure it has the proper namespace (NOT beginning with Application)
 
-[code,php]
+[source,php]
 ----
 <?
  
@@ -37,14 +37,14 @@ class Game extends DashboardPageController
 
 Add a refernece to the \Concrete\Core\Page\Single class to the top of your controller.
 
-[code,php]
+[source,php]
 ----
 use \Concrete\Core\Page\Single as SinglePage;
 ----
 
 In your package's install() method, install your single page using the http://concrete5.org/api/class-Concrete.Core.Page.Single.html#_add[Concrete\Core\Page\Single::add()] method.
 
-[code,php]
+[source,php]
 ----
 public function install()
 {

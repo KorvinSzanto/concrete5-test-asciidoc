@@ -4,7 +4,7 @@ Next, place this file in the application/jobs directory. (If you want to include
 
 Then, open the file and place a PHP class within this file that matches the name of the filename, and that extends the http://concrete5.org/api/class-Concrete.Core.Job.Job.html[\Concrete\Core\Job\Job] class.
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Application\Job;
@@ -53,21 +53,21 @@ Then, place the class in the jobs directory so you have packages/super_stats/job
 
 Next, you'll need to modify the namespace of your Job. So
 
-[code,php]
+[source,php]
 ----
 namespace Application\Job;
 ----
 
 becomes
 
-[code,php]
+[source,php]
 ----
 namespace Concrete\Package\SuperStats\Job;
 ----
 
 Finally, you'll need to install your Job within your package's install() method, rather than through the UI. From within your concrete5 SuperStats Package, you'll need to add this code.
 
-[code,php]
+[source,php]
 ----
 public function install()
 {

@@ -4,7 +4,7 @@ Once you have your package's Controller file created, it's a simple matter to ad
 
 Create a blocks directory within your package's directory. If we're making a package for our audio player block, Let's create a package for it
 
-[code,php]
+[source,php]
 ----
 mkdir packages/audio_player
 mkdir packages/audio_player/blocks/
@@ -12,21 +12,21 @@ mkdir packages/audio_player/blocks/
 
 Create a controller file for your package as per the theming instructions listed above. Move your audio player block from application/blocks/audio_player into the package.
 
-[code,php]
+[source,php]
 ----
 mv application/blocks/audio_player packages/audio_player/blocks/audio_player
 ----
 
 Add a refernece to the \Concrete\Core\Block\BlockType\BlockType class to the top of your controller.
 
-[code,php]
+[source,php]
 ----
 use \Concrete\Core\Block\BlockType\BlockType
 ----
 
 In your package's install() method, install your block using the http://concrete5.org/api/class-Concrete.Core.Block.BlockType.BlockType.html[Concrete\Core\Block\BlockType\BlockType::installBlockType()] method.
 
-[code,php]
+[source,php]
 ----
 public function install()
 {
@@ -34,7 +34,7 @@ public function install()
     $bt = BlockType::getByHandle('audio_player');
 if (!is_object($bt)) {
     $bt = BlockType::installBlockType('audio_player', $pkg);
-    }       
+    }
 }
 ----
 

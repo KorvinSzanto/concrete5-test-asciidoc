@@ -14,7 +14,7 @@ There are a number of ways to get a database copy. http://www.phpmyadmin.net[php
 
 If you have ssh access or direct terminal access to your server, this command will also give you a backup file:
 
-[code,php]
+[source,php]
 ----
  mysqldump -u db_user -p db_database > database.sql
 ----
@@ -58,7 +58,7 @@ Now you need to create a new, empty database on the new hosting environment for 
 
 Once you have the new database in place, you can now import the data either using phpMyAdmin by uploading your database dump from earlier and using phpMyAdmin's import function, or just use this command:
 
-[code,php]
+[source,php]
 ----
  mysql -u db_user -p database_name < old_database.sql
 ----
@@ -69,7 +69,7 @@ Now you should have all of your files and data in place.
 
 The last step is to modify your application/config/database.php for your new database credentials. This file should contain a PHP array that looks similar to this:
 
-[code,php]
+[source,php]
 ----
 <?php
 return array(

@@ -4,7 +4,7 @@ http://www.mysite.com/index.php/path/to/page/custom_foo/param1/param2/param3
 
 Just create a method named
 
-[code,php]
+[source,php]
 ----
 public function action_custom_foo($param1 = null, $param2 = null, $param3 = null)
 {
@@ -27,7 +27,7 @@ This means that any block on the page that responds to "action_topic" with a $tr
 
 The topic list block uses the action_topic() method to mark the particular clicked-on topic as selected. Here is its action_topic() method in the controller.
 
-[code,php]
+[source,php]
 ----
 public function action_topic($treeNodeID = false, $topic = false)
 {
@@ -42,7 +42,7 @@ The method simply sets the selected topic ID into the block view. The view then 
 
 When the "Archives" custom template is applied to the Page Title block, the Page Title block will listen for action_topic() and display the selected topic text instead of "Blog".
 
-[code,php]
+[source,php]
 ----
 public function action_topic($treeNodeID = false, $topic = false)
 {
@@ -56,7 +56,7 @@ public function action_topic($treeNodeID = false, $topic = false)
 
 First, it uses the topic tree node ID to grab the selected topic, and sets it into the page. The archives custom template then displays it.
 
-[code,php]
+[source,php]
 ----
 <?php
 if (is_object($currentTopic)) {
@@ -70,7 +70,7 @@ if (is_object($currentTopic)) {
 
 Finally, the Page List block filters by the topic. First, it routes the "topic" URL slug to the action_filter_by_topic() method (see below for more on how to do this). Then the action_filter_by_topic() method filters the instance of the http://concrete5.org/api/class-Concrete.Core.Page.PageList.html[\Concrete\Core\Page\PageList] object that is already instantiated within the Page List block.
 
-[code,php]
+[source,php]
 ----
 public function action_filter_by_topic($treeNodeID = false, $topic = false)
 {
@@ -94,7 +94,7 @@ The Page List block provides a number of action_ URLs for other blocks to use to
 
 Any time an action URL is checked, the http://concrete5.org/api/class-Concrete.Core.Block.BlockController.html[\Concrete\Core\Block\BlockController] method "isValidControllerTask" is checked. This checks the class to see if the method exists, and whether it starts with action_. The Page List block controller overrides this method to also check if an additional internal boolean is set to true.
 
-[code,php]
+[source,php]
 ----
 public function isValidControllerTask($method, $parameters = array())
 {
@@ -112,7 +112,7 @@ This only enables the action_ URLs if the page list "Enable External Filtering" 
 
 Sometimes you might want your method to be named differently than the standard "action_*" method name. For example, the Page List block reacts to the "tag", "topic" and "date" parameters:
 
-[code,php]
+[source,php]
 ----
 http://www.mysite.com/index.php/path/to/page/topic/123/kittens
 http://www.mysite.com/index.php/path/to/page/date/2015/01/01
@@ -127,7 +127,7 @@ The core team didn't want to create methods named "action_tag", "action_date", "
 
 Without losing the nice, succinct URL segments. To do this, simply override the built-in http://concrete5.org/api/class-Concrete.Core.Block.BlockController.html[\Concrete\Core\Block\BlockController]
 
-[code,php]
+[source,php]
 ----
 public function getPassThruActionAndParameters($parameters)
 {

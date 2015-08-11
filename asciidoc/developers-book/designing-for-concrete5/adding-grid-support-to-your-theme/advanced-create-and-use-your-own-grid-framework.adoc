@@ -28,7 +28,7 @@ My theme is now available for activation on Dashboard > Pages & Themes > Themes.
 
 Now, you can see I have a very simple default page template in use on the home page. It has a left sidebar and a right main area. The template, **default.php**, is also very simple. Here is the relevant portion.
 
-[code,php]
+[source,php]
 ----
 <div class="row">
     <div class="large-3 columns">
@@ -48,7 +48,7 @@ Now, you can see I have a very simple default page template in use on the home p
 
 The structure of this HTML should be familiar to anyone who has used Zurb Foundation before. But what if I want to add support for the Foundation grid to the Main area? Following the documentation for link:#[Enabling Grid Support in a Theme] (without adding a container), I would do this:
 
-[code,php]
+[source,php]
 ----
 <?
     $a = new Area('Main');
@@ -67,14 +67,14 @@ If you put the page in edit mode and try and add a layout, you'll notice you onl
 
 We'll add this line of code to our Zurb Foundation PageTheme class:
 
-[code,php]
+[source,php]
 ----
 protected $pThemeGridFrameworkHandle = 'foundation';
 ----
 
 If we reload the page, we'll get this error:
 
-[code,php]
+[source,php]
 ----
 Driver [foundation] not supported
 ----
@@ -89,7 +89,7 @@ First, create the file in your package directory at packages/zurb_foundation/src
 
 Let's create the PHP class in this file as well.
 
-[code,php]
+[source,php]
 ----
 namespace Concrete\Package\ZurbFoundation\Src;
  
@@ -105,7 +105,7 @@ class FoundationGridFramework extends GridFramework
 
 We can name this class anything, as long as it extends the \Concrete\Core\Page\Theme\GridFramework\GridFramework class. This class is an abstract that defines a number of required methods that describe how a particular grid framework functions. We need to implement those methods.
 
-[code,php]
+[source,php]
 ----
     abstract public function getPageThemeGridFrameworkName();
     abstract public function getPageThemeGridFrameworkRowStartHTML();
@@ -120,7 +120,7 @@ We can name this class anything, as long as it extends the \Concrete\Core\Page\T
 
 These names should be somewhat self explanatory. Every grid framework specifies how its classes work, what those classes are, its name, container and row classes, offset classes (if they exist), and additional css classes to apply to columns or offset columns, if they exist. Here is the example of the Zurb Foundation Grid as it is actually implemented in this system:
 
-[code,php]
+[source,php]
 ----
 public function getPageThemeGridFrameworkName()
 {
@@ -200,9 +200,9 @@ The name is self-explanatory. Each Foundation grid row starts with a DIV with th
 
 This is our final file, packages/zurb_foundation/src/FoundationGridFramework.php:
 
-[code,php]
+[source,php]
 ----
-<?php 
+<?php
 namespace Concrete\Package\ZurbFoundation\Src;
  
 use Concrete\Core\Page\Theme\GridFramework\GridFramework;
@@ -294,7 +294,7 @@ Now that we have a grid framework in place, we still need to tell the Foundation
 
 Open packages/zurb_foundation/controller.php, and add these two lines to the section directory below the namespace call. These are classes we're going to use in our modified controller:
 
-[code,php]
+[source,php]
 ----
 use Concrete\Package\ZurbFoundation\Src\FoundationGridFramework;
 use Core;
@@ -304,7 +304,7 @@ The first is the class we just created. The second is the global Core object, wh
 
 Now let's add this method to our package:
 
-[code,php]
+[source,php]
 ----
 public function on_start()
 {

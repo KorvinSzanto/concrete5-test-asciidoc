@@ -1,6 +1,6 @@
 Like a block's view template, any file in the block's directory can be duplicated in a website's application directory, and will then override that version of the core block. This includes the controller.php file. For example, say you want to change the behavior of the Search block to search just page titles, instead of all the keyword fields on a particular page. Lines 208-210 are the relevant lines of code that will need to be changed:
 
-[code,php]
+[source,php]
 ----
 if (isset($_REQUEST['query'])) {
     $ipl->filterByKeywords($_q);
@@ -12,7 +12,7 @@ This is within the do_search method. Let's override the core search block contro
 
 Next, we create an override directory in *application/blocks* for the search block. Assuming I'm in my web root directory:
 
-[code,php]
+[source,php]
 ----
 mkdir application/blocks/search
 ----
@@ -21,7 +21,7 @@ Then, create an empty controller.php in this location. So now now we have an emp
 
 Next, add the proper namespace. Since this is in the Application directory, it looks like this:
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Application\Block\Search;
@@ -29,21 +29,21 @@ namespace Application\Block\Search;
 
 Then, we add a reference to the core search block controller, which we will be extending:
 
-[code,php]
+[source,php]
 ----
 use Concrete\Block\Search\Controller as SearchBlockController;
 ----
 
 Then create the class itself, which extends this search block controller:
 
-[code,php]
+[source,php]
 ----
 class Controller extends SearchBlockController
 ----
 
 The entire file now looks like this:
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Application\Block\Search;

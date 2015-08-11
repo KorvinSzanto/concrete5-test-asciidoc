@@ -2,7 +2,7 @@ In addition to working with metadata, concrete5's file manager provides interfac
 
 Like file importer inspectors, this functionality is controlled by the \Concrete\Core\File\Type\TypeList class. The registrations in this class determine whether a file type has a viewer or an editor. Let's take our custom file inspector reference here:
 
-[code,php]
+[source,php]
 ----
 $list = TypeList::getInstance();
 $list->define('mp3', t('MP3'), \Concrete\Core\File\Type\Type::T_AUDIO, 'audio', 'audio', false, 'id3_reader');
@@ -10,7 +10,7 @@ $list->define('mp3', t('MP3'), \Concrete\Core\File\Type\Type::T_AUDIO, 'audio', 
 
 The fifth and six arguments in this method call ('audio' and false) control whether the file type has a custom viewer and/or a custom editor. Since "audio" is specified as a custom viewer, any files of this type will contain a "View" link when clicked on in the file manager. When clicking the View link, a dialog window will be opened that will automatically load the contents of
 
-[code,php]
+[source,php]
 ----
 elements/files/view/audio.php
 ----
@@ -19,9 +19,9 @@ The final filename will match whatever is passed in this argument. When loading 
 
 Since we've created a custom mapping for our ID3_Reader package, and we're specifying a custom viewer for our audio file, we need to make sure that our package contains an audio viewer. Otherwise, we're going to get a file not found error when we click on the the View link that is shown when working with audio files. So let's add a file in the proper spot. First, create an empty PHP file in packages/id3_reader/elements/files/view/audio.php. Next, these contents should be sufficient:
 
-[code,php]
+[source,php]
 ----
-<?php defined('C5_EXECUTE') or die("Access Denied."); ?> 
+<?php defined('C5_EXECUTE') or die("Access Denied."); ?>
 <?php $path = $fv->getURL(); ?>
 <audio controls>
     <source src="<?php echo $path ?>" type="audio/mpeg">

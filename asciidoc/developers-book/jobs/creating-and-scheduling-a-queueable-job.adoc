@@ -8,7 +8,7 @@ A Queueable Job is basically a job that extends a difference class, and implemen
 
 Let's consider this job.
 
-[code,php]
+[source,php]
 ----
 class TestJob extends \Concrete\Core\Job\Job
 {
@@ -45,14 +45,14 @@ But what if our site has thousands of pages? This job could pretty easily time o
 
 First, instead of extending \Concrete\Core\Job\Job, make the Job extend the QueueableJob class.
 
-[code,php]
+[source,php]
 ----
 class TestJob extends \Concrete\Core\Job\QueueableJob
 ----
 
 Once this is the case, you'll need to implement a few methods, since the QueueableJob class is an abstract.
 
-[code,php]
+[source,php]
 ----
 abstract public function start(\ZendQueue\Queue $q);
 abstract public function finish(\ZendQueue\Queue $q);
@@ -61,7 +61,7 @@ abstract public function processQueueItem(\ZendQueue\Message $msg);
 
 These methods all work with the Queue class from the Zend Framework. We're going to be created a start method, which will take care of seeding our queue with messages, a finish class that will take care of cleaning up when our Job is finished, and a processQueueItem method, which will be run for every single item that's in our queue. Let's do the start method first:
 
-[code,php]
+[source,php]
 ----
 public function start(\ZendQueue\Queue $q)
 {
@@ -78,7 +78,7 @@ The first part of this method should look familiar. We create a PageList instanc
 
 Next, let's implement processQueueItem.
 
-[code,php]
+[source,php]
 ----
 public function processQueueItem(\ZendQueue\Message $msg)
 {
@@ -91,7 +91,7 @@ This should be pretty straightforward. For every item in the queue (represented 
 
 Finally, we implement our finish() method. Since the finish() method doesn't necessarily know anything about the queue, sometimes it can be a little difficult to get real data about how many items were processed – but many times you don't need to pass this data back anyway.
 
-[code,php]
+[source,php]
 ----
 public function start(\ZendQueue\Queue $q)
 {
@@ -105,7 +105,7 @@ That's it! We've turned our potentially problematic Job into a QueueableJob that
 
 Scheduling a Queueable Job works differently than a regular job. A regular Job, if it has as job ID of 1, would be accessed this way in a headless system:
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/index.php/ccm/system/jobs?auth=authenticationHash&jID=1
 ----
@@ -114,7 +114,7 @@ Where authenticatioHash is equal to the authentication hash displayed in the Das
 
 If this is done with a QueueableJob, the entire Job will be run all at once. This is for backward compatibility, and so that we never have a situation where someone thinks they're running a job and it isn't running. But what if you want to schedule a Queueable Job to run periodically, but still have it operate in batches like it does from the concrete5 Jobs interface? This requires a different approach. Instead of hitting the above URL, schedule *two* Jobs to run. The first is the Job URL for this Queueable Job:
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/index.php/ccm/system/jobs/run_single?auth=authenticationHash&jID=1
 ----
@@ -123,7 +123,7 @@ Schedule this for when you'd like this Job to *begin* running.
 
 Next, schedule the Job watcher process:
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/index.php/ccm/system/jobs/check_queue?auth=authenticationHash
 ----

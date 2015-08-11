@@ -4,7 +4,7 @@ There are times when you might want to use a block's functionality within a page
 
 ==== Example 1: Hard-Coding Tags Block
 
-[code,php]
+[source,php]
 ----
 $bt = BlockType::getByHandle('tags');
 $c = Page::getByID('/path/to/target/page');
@@ -17,7 +17,7 @@ $bt->render();
 
 Render a breadcrumb navigation using the Auto-Nav block with certain options, and the built-in Breadcrumb Auto-Nav custom tempate.
 
-[code,php]
+[source,php]
 ----
 $bt = BlockType::getByHandle('autonav');
 $bt->controller->orderBy = 'display_asc';
@@ -31,7 +31,7 @@ $bt->render('templates/breadcrumb');
 
 It's even easier to render the contents of a stack. This will be just as immutable on the front-end of the site, but the contents rendered can change over time. Change the stack, not the front-end.
 
-[code,php]
+[source,php]
 ----
 $stack = Stack::getByName('Your Stack Name');
 $stack->display();

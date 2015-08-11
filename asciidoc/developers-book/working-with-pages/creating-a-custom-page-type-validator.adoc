@@ -6,7 +6,7 @@ As a developer, you'll frequently use page types to solve certain specific, part
 
 First, we have to tell concrete5 that our Job Posting page type has a custom validator. We do that with this code, which we can place in application/bootstrap/app.php
 
-[code,php]
+[source,php]
 ----
 $manager = \Core::make('manager/page_type/validator');
 $manager->extend('job_posting', function($app) {
@@ -18,14 +18,14 @@ First, we make an instance of the Page Type Validator Manager service. Then, we 
 
 Now we need to actually create our custom validator. Create a src/ directory in the application/src directory, and then create directories all the way down to
 
-[code,php]
+[source,php]
 ----
 application/src/Page/Type/Validator/
 ----
 
 Then, create an empty PHP file in this directory, named JobPostingValidator. Then, we'll put this code inside it.
 
-[code,php]
+[source,php]
 ----
 <?php
  

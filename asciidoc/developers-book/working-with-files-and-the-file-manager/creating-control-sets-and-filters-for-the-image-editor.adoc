@@ -16,7 +16,7 @@ Image editor extensions give you the ability to add html into the image editor s
 
 Image editor configuration lives under its own group `imageeditor`, to modify this group create and edit `application/config/imageeditor.js`. Extensions live underneath the `extensions` item so a proper image editor config file looks something like:
 
-[code,php]
+[source,php]
 ----
 <?php
 return array(
@@ -53,7 +53,7 @@ return array(
 
 You can retrieve the editor object by using the `editor/image/core' application binding:
 
-[code,php]
+[source,php]
 ----
 <?php
 $editor = \Core::make('editor/image/core');
@@ -63,7 +63,7 @@ $editor = \Core::make('editor/image/core');
 
 Concrete5 provides an `EditorExtensionInterface` implementation that is easy set up without having to extend any classes
 
-[code,php]
+[source,php]
 ----
 <?php
 // Create a new extension instance
@@ -98,7 +98,7 @@ $editor->addControl($extension);
 
 The core image editor expects only implementations of `EditorExtensionInterface` to be added, because it's an interface we can provide a completely custom implementation
 
-[code,php]
+[source,php]
 ----
 <?php
  
@@ -155,7 +155,7 @@ class CustomExtension implements \Concrete\Core\ImageEditor\EditorExtensionInter
 
 And then you can register it by running:
 
-[code,php]
+[source,php]
 ----
 <?php
  
@@ -169,7 +169,7 @@ Once you have your filter extension loading, we can worry about the JavaScript t
 
 First we need a javascript function that will modify an https://developer.mozilla.org/en-US/docs/Web/API/ImageData[ImageData] object. For this example, we will make a filter that shifts an image to red.
 
-[code,php]
+[source,php]
 ----
 // Shift each pixel 50% to red
 var red_filter = function(imageData) {
@@ -186,7 +186,7 @@ var red_filter = function(imageData) {
 
 The next step is to set up our example thumbnail, to do that we listen for an event `filterApplyExample` and fire an event `filterBuiltExample` when we finish applying the filter.
 
-[code,php]
+[source,php]
 ----
 var filter = this;
 filter.im.bind('filterApplyExample', function (e, data) {
@@ -202,7 +202,7 @@ filter.im.bind('filterApplyExample', function (e, data) {
 
 Now to apply this filter when the user selects it, we listen for an event `filterChange`.
 
-[code,php]
+[source,php]
 ----
 var filter = this;
 filter.im.bind('filterChange', function (e, data) {
@@ -223,7 +223,7 @@ filter.im.bind('filterChange', function (e, data) {
 
 Some filter like the gaussian blur filter have extra controls that let you alter the filter while it is applied. The best way to set up your custom controls is to hook into the `FilterFullyLoaded` event
 
-[code,php]
+[source,php]
 ----
 filter.im.bind('filterFullyLoaded', function (e, data) {
     if (data.im.namespace === filter.im.namespace) {
@@ -238,7 +238,7 @@ filter.im.bind('filterFullyLoaded', function (e, data) {
 
 So all together, a simple filter's JS will like this:
 
-[code,php]
+[source,php]
 ----
 /**
  * Red shift filter

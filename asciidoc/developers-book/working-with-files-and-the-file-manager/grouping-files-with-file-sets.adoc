@@ -1,6 +1,6 @@
 File Sets are a useful way to organize files in concrete5. A single file can be in multiple File Sets. The file manager interface provides ways to filter by file sets, and developers can work with them through code easily as well. Adding a file to a file set programmatically is easy:
 
-[code,php]
+[source,php]
 ----
 $file = \Concrete\Core\File\File::getByID(1);
 $set = \Concrete\Core\File\Set\Set::getByName('My File Set');
@@ -9,7 +9,7 @@ $set->addFileToSet($file);
 
 Removing a file from a set is similar simple:
 
-[code,php]
+[source,php]
 ----
 $set->removeFileFromSet($file);
 ----
@@ -18,10 +18,10 @@ $set->removeFileFromSet($file);
 
 Sometimes you want to create a file set programmatically. For example, you're creating a custom package and you want all files of a certain type added to a particular file set. Creating a file set programmatically is easy:
 
-[code,php]
+[source,php]
 ----
 $set = \Concrete\Core\File\Set\Set::createAndGetSet(
-    'My File Set', 
+    'My File Set',
     \Concrete\Core\File\Set\Set::TYPE_PUBLIC
 );
 ----

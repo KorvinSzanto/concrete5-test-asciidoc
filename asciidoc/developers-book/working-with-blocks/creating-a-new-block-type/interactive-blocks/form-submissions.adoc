@@ -4,7 +4,7 @@ The survey block presents the user with a form that, when submitted, tallies the
 
 To create a form action in a block, use the \Concrete\Core\Block\View\BlockView::action method:
 
-[code,php]
+[source,php]
 ----
 $view->action('form_save_vote');
 ----
@@ -15,7 +15,7 @@ The $view object is an instance of the http://concrete5.org/api/class-Concrete.C
 
 The $view->action('form_save_vote') method generates the following URL:
 
-[code,php]
+[source,php]
 ----
 http://www.mysite.com/index.php/path/to/page/form_save_vote/{bID}
 ----
@@ -26,7 +26,7 @@ Where bID is the numerical block ID.
 
 Now create a method named action_method_name, where method_name is the contents of the action() method you used on the page. For the survey block, the name is "action_form_save_vote." When the form is submitted, this action will be run. At the end of this method you can redirect the user to another page, but this is not required.
 
-[code,php]
+[source,php]
 ----
 public function action_form_save_vote($bID = false)
 {

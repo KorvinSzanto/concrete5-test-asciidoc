@@ -1,13 +1,13 @@
 We just learned how to enable grid support for areas in your theme. While doing so, you may have noticed and wondered about this line:
 
-[code,php]
+[source,php]
 ----
 $area->enableGridContainer();
 ----
 
 This method is only available to Area objects on pages using a theme that has a grid framework enabled. Each grid framework must define HTML that corresponds to the "container" class available for that grid framework. For example, the bootstrap grid framework defines its container with this:
 
-[code,php]
+[source,php]
 ----
 public function getPageThemeGridFrameworkContainerStartHTML()
 {
@@ -21,7 +21,7 @@ public function getPageThemeGridFrameworkContainerEndHTML()
 
 Any time the Bootstrap 3 grid is used on a site, and an area in that site enables the grid container via the method above, certain blocks added to that area will have the container added around them. Which blocks? All of them – **except** those that explicitly opt out by declaring the following line in their Controller class:
 
-[code,php]
+[source,php]
 ----
 protected $btIgnorePageThemeGridFrameworkContainer = false;
 ----

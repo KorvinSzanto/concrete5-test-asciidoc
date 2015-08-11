@@ -8,7 +8,7 @@ These thumbnails aren't just useful for responsive themes, however. With a littl
 
 It's a common problem: you have an image gallery, and you'd like to list custom thumbnails in the page, with a detail image that gets displayed when you click on the thumbnail. Your thumbnails all should be 100 pixels wide by 100 pixels tall. Let's say you have an array of \Concrete\Core\File\File objects (the $images array below), and these are the images you want to display in your block. In concrete5 version 6 and earlier, you might have looped through them and used the image helper:
 
-[code,php]
+[source,php]
 ----
 <?php
 $width = 100;
@@ -43,7 +43,7 @@ Next, go through the File Manager and rescan every image you have. This will reg
 
 Now, within the template of your block, instead of using the basic image thumbnailer like we did before, we're going to use these special thumbnails, with code like this:
 
-[code,php]
+[source,php]
 ----
 <?php
 $type = \Concrete\Core\File\Image\Thumbnail\Type\Type::getByHandle('gallery');
@@ -53,7 +53,7 @@ foreach($images as $file) {
         print '<div class="thumbnail">';
         print "<img src=\"{$src}\" />";
         print '</div>';
-    }    
+    }
 }
 ----
 

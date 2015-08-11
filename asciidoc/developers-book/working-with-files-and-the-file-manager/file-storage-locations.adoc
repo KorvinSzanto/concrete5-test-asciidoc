@@ -30,7 +30,7 @@ Here's how you can create your own File Storage Location type. (Note: since file
 
 We'll create a pretty standard package controller for our package.
 
-[code,php]
+[source,php]
 ----
 <?php
  
@@ -66,7 +66,7 @@ There's nothing special about this package yet.
 
 Now, we'll install our custom file storage location type when the package is installed. Add this method to the package:
 
-[code,php]
+[source,php]
 ----
 public function install()
 {
@@ -79,7 +79,7 @@ When our custom type is installed, it will be listed in the type dropdown shown 
 
 By default, custom file storage location library files are loaded from packages/your_package/src/File/StorageLocation/Configuration/CustomConfiguration, where "Custom" is the StudlyCapsed version of the first parameter in the add() method above. So in our case we'd be loading from packages/custom_storage/src/File/StorageLocation/Configuration/TypeFooConfiguration.php, with a namespace of \Concrete\Package\CustomStorage\Src\File\StorageLocation\Configuration\TypeFooConfiguration.php. However, if we want to remove the \Src from the namespace and make things a little bit nicer, we can add this line of code to our class.
 
-[code,php]
+[source,php]
 ----
 protected $pkgAutoloaderMapCoreExtensions = true;
 ----
@@ -90,9 +90,9 @@ Now, our class's name will be Concrete\Package\CustomStorage\File\StorageLocatio
 
 The most important part of the file storage location class is the custom configuration class auto-loaded above. Here's an empty version of the class you'll need to create:
 
-[code,php]
+[source,php]
 ----
-<?php 
+<?php
 namespace Concrete\Package\CustomStorage\File\StorageLocation\Configuration;
  
 use \Concrete\Core\File\StorageLocation\Configuration\ConfigurationInterface;
@@ -106,21 +106,21 @@ class TypeFooConfiguration extends Configuration implements ConfigurationInterfa
 
 The custom configuration class must extend the base Configuration class above, and it also might implement the ConfigurationInterface. The ConfigurationInterface class takes care of defining methods that any Configuration needs to operate, including how to retrieve public files, get paths to a particular file object, and more. Here is the interface that the custom class will need to implement.
 
-[code,php]
+[source,php]
 ----
 public function hasPublicURL();
 ----
 
 Returns true if the configuration has a public URL.
 
-[code,php]
+[source,php]
 ----
 public function hasRelativePath();
 ----
 
 Returns true if the configuration has a relative path.
 
-[code,php]
+[source,php]
 ----
 public function loadFromRequest(\Concrete\Core\Http\Request $req);
 public function validateRequest(\Concrete\Core\Http\Request $req);
@@ -128,14 +128,14 @@ public function validateRequest(\Concrete\Core\Http\Request $req);
 
 These methods take care of handling the POST request from the custom options form used by the file storage location type. validateRequest() should return an instance of the \Concrete\Core\Error\Error object, with or without errors attached. You can use these methods to save your custom file storage options in whatever way you choose.
 
-[code,php]
+[source,php]
 ----
 public function getAdapter();
 ----
 
 Returns whatever adapter you're using with your custom storage object. This doesn't need to be any particular object, it's just here in order to force you to understand the adapter pattern.
 
-[code,php]
+[source,php]
 ----
 public function getPublicURLToFile($file);
 public function getRelativePathToFile($file);

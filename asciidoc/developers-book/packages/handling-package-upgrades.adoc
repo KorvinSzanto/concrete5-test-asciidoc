@@ -1,6 +1,6 @@
 While many packages are used to bundle bits of code in a one-time fashion, the format itself is able to handle continuous code deployment over a period of time. Using the version number in a package, we can trigger custom code that adds functionality over time. For example, let's say we have a package that installs a theme:
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Concrete\Package\CustomTheme;
@@ -37,14 +37,14 @@ class Controller extends Package
 
 This is version 1.0 of the package. It installs a theme found at packages/custom_theme/themes/custom_theme. Now, let's say we want to add a block type as part of this package. Adding this to installation is easy. First, we import it into our namespace at the top of our file:
 
-[code,php]
+[source,php]
 ----
 use \Concrete\Core\Block\BlockType\BlockType;
 ----
 
 Next, we add a line of code to install the block type at the time of package installation:
 
-[code,php]
+[source,php]
 ----
 public function install()
 {
@@ -58,14 +58,14 @@ We just add the new installBlockTypeFromPackage line. However, what about sites 
 
 First, change the $pkgVersion variable to something higher than the initial value. For example, let's make this 1.2
 
-[code,php]
+[source,php]
 ----
 protected $pkgVersion = '1.2';
 ----
 
 Now, create an upgrade method in your package controller.
 
-[code,php]
+[source,php]
 ----
 public function upgrade() {
     parent::upgrade();

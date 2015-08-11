@@ -4,7 +4,7 @@ A styles.xml file lives within the css directory of a theme, and it is responsib
 
 Let's create application/themes/urbanic/css/styles.xml, and begin working with it.
 
-[code,php]
+[source,php]
 ----
 <?xml version="1.0"?>
 <styles version="1.0">
@@ -15,7 +15,7 @@ First we create the outer XML node, which must have the name of styles.
 
 Next, we create an inner node for the style set. Style sets group styles together into logical groups. Every style must exist inside a style set, but otherwise there isn't much importance to how you name or structure your sets. Style sets don't impact variables or naming or anything like that.
 
-[code,php]
+[source,php]
 ----
 <?xml version="1.0"?>
 <styles version="1.0">
@@ -27,7 +27,7 @@ Next, we create an inner node for the style set. Style sets group styles togethe
 
 Finally, let's add an entry for our single customizable style. Remember, we chose the variable name "primary-action-color".
 
-[code,php]
+[source,php]
 ----
 <?xml version="1.0"?>
 <styles version="1.0">

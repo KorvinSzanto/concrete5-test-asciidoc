@@ -18,7 +18,7 @@ When a Concrete5 administrator clicks a block in edit mode, and chooses "Edit" f
 
 When the edit template is loaded, the edit() method from the Controller is run (if it exists), giving a developer the opportunity to inject data into the edit template from the method. Then, the edit.php file is rendered. Additionally, *the value for any column on the $btTable database table is automatically injected into the edit.php local scope.* This means that if your $bTable has a column entitled "content" and the value of that content for that block is "This is my content" you can simply do this in view.php
 
-[code,php]
+[source,php]
 ----
 <input type="text" name="content" value="<?php print $content; ?>" />
 ----

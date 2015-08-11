@@ -1,6 +1,6 @@
 Since Concrete5 themes are just collections of PHP template files that correspond with page templates, nothing special is required to use CSS and JavaScript within them. Simply including CSS and JavaScript with directives like this
 
-[code,php]
+[source,php]
 ----
 <script type="text/javascript" src="<?=$view->getThemePath()?>/js/library.js"></script>
 ----
@@ -9,7 +9,7 @@ will work, and will work well.
 
 You can also use some helper methods here.
 
-[code,php]
+[source,php]
 ----
 <?php
 $html = Core::make('helper/html');
@@ -25,7 +25,7 @@ print $html->javascript('path/to/library', $pkg);
 
 As mentioned elsewhere, you can also include and parse LESS files by using the getStylesheet method found in in the \Concrete\Core\View\View class.
 
-[code,php]
+[source,php]
 ----
 print $html->css($view->getStyleSheet('main.less'));
 ----

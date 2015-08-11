@@ -12,7 +12,7 @@ The following sets are available in 5.7 by default. Currently, there is no way t
 
 To make sure your block type appears in the right set, just add this protected variable to its controller class
 
-[code,php]
+[source,php]
 ----
 protected $btDefaultSet = 'your_set';
 ----

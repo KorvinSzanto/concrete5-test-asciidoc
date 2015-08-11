@@ -2,14 +2,14 @@ So far you've seen how to create a custom view template that can be used in plac
 
 Fortunately, there's an easy way to do this within the custom view template system. In our previous example, our custom template is found here:
 
-[code,php]
+[source,php]
 ----
 application/blocks/autonav/templates/site_map_tree.php
 ----
 
 When using this custom template on a page, if we wanted to include some custom CSS and JavaScript in the header and footer, respectively, just do the following:
 
-[code,php]
+[source,php]
 ----
 mkdir application/blocks/autonav/templates/site_map_tree
 mv application/blocks/autonav/templates/site_map_tree.php application/blocks/autonav/templates/site_map_tree/view.php
@@ -27,7 +27,7 @@ Any time a block view or a block's custom template includes a view.js or view.cs
 
 For example, the Elemental theme that ships with 5.7 includes CSS that will nicely style many of Concrete5's core blocks, to the point where they shouldn't load their view.js or view.css files (since the theme takes care of the styling.) Elemental's page theme controller keeps those files from loading. This code snippet details how the Elemental registerAssets function keeps certain files from loading:
 
-[code,php]
+[source,php]
 ----
 public function registerAssets() {
     $this->providesAsset('css', 'blocks/form');

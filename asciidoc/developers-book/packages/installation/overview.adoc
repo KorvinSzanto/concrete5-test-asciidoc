@@ -1,6 +1,6 @@
 The install() method from a Package controller is automatically run when the package is installed. In our block type example, we use the Concrete\Core\Block\BlockType\BlockType::installBlockTypeFromPackage() method, which takes a block type handle, and a Concrete\Core\Package\Package object as its second parameter.
 
-[code,php]
+[source,php]
 ----
 public function install()
 {
@@ -17,7 +17,7 @@ Note: the install() method is not *required* in the package's custom controller 
 
 Sometimes you might need to abort an installation – for example, say your package requires PHP 5.4 and the version of PHP installed is only 5.3. Just throw an exception from within the install() method *before* you run parent::install() and the error will be nicely displayed to the end user, and installation aborted.
 
-[code,php]
+[source,php]
 ----
 public function install()
 {

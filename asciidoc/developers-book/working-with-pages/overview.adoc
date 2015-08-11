@@ -16,7 +16,7 @@ $c
 
 The $c object isn't always available in a block's view or edit template. Instead, use this snippet of code to retrieve the current page:
 
-[code,php]
+[source,php]
 ----
 $c = \Page::getCurrentPage();
 ----
@@ -25,14 +25,14 @@ $c = \Page::getCurrentPage();
 
 Sometimes you want to operate on a page that you know exists in a certain spot on the tree.
 
-[code,php]
+[source,php]
 ----
 $c = \Page::getByPath('/path/to/page', 'APPROVED');
 ----
 
 Similarly, if you know the exact numerical ID of the page you want to work with, use this code:
 
-[code,php]
+[source,php]
 ----
 $c = \Page::getByID(1, 'APPROVED'); // Retrieves the home page.
 ----
@@ -43,7 +43,7 @@ Once you have a page object, there's a lot you can do with it.
 
 The examples above return the page object and load the approved http://concrete5.org/api/class-Concrete.Core.Page.Collection.Version.Version.html[Page Version] object for that page. Most of the time this is right, ensuring that you're displaying information from the approved version of the page you're interested in. Sometimes, however, a developer might want to retrieve the most recent version of the page, rather than the approved one. To do so, just omit the version specifier.
 
-[code,php]
+[source,php]
 ----
 $c = \Page::getByPath('/path/to/page');
  

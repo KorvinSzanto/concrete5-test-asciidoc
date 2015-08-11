@@ -1,13 +1,13 @@
 Concrete5 provides the http://concrete5.org/api/class-Concrete.Core.File.FileList.html[Concrete\Core\File\FileList] object to make it easy for developers to query concrete5 for a list of files based on different criteria. Any time you want to sort, search or otherwise filter a list of files you should use this object, as it checks permissions and provides a nice API to what is a fairly complex table structure underneath.
 
-[code,php]
+[source,php]
 ----
 $list = new \Concrete\Core\File\FileList();
 ----
 
 By default, this list will include every file in your site, since it's not filtered in any way. It will only include files that the current user can see, based on permissions.
 
-[code,php]
+[source,php]
 ----
 $files = $list->getResults();
 ----
@@ -28,14 +28,14 @@ $list->filterByFileType(\Concrete\Core\File\Type\Type::T_IMAGE);
 
 Filter by Extension
 
-[code,php]
+[source,php]
 ----
 $list->filterByExtension('png');
 ----
 
 Filter By Keywords
 
-[code,php]
+[source,php]
 ----
 $list->filterByKeywords('foobar');
 ----
@@ -44,7 +44,7 @@ Filtering by keywords is a simple like search against the filename, description,
 
 Filter By File Set
 
-[code,php]
+[source,php]
 ----
 $set = \Concrete\Core\File\Set\Set::getByName('My File Set');
 $list->filterBySet($set);
@@ -52,14 +52,14 @@ $list->filterBySet($set);
 
 Include Files in No Sets
 
-[code,php]
+[source,php]
 ----
 $list->filterByNoSet();
 ----
 
 Filter By a Particular File Size (in KB)
 
-[code,php]
+[source,php]
 ----
 $list->filterBySize(1024, 2048); // Only includes files that are between 1MB and 2MB in Size
 ----
@@ -68,7 +68,7 @@ $list->filterBySize(1024, 2048); // Only includes files that are between 1MB and
 
 Filtering By Attribute is Easier
 
-[code,php]
+[source,php]
 ----
 $list->filterByAttribute('width', 200, '>='); // Only include files where "width" is 200 or greater.
 ----
@@ -77,14 +77,14 @@ $list->filterByAttribute('width', 200, '>='); // Only include files where "width
 
 Sort by filename is ascending alphabetical order.
 
-[code,php]
+[source,php]
 ----
 $list->sortByFilenameAscending();
 ----
 
 Sort by File Set Display Order. (Note: in order to use this method, you must include a single file set in your filter methods.)
 
-[code,php]
+[source,php]
 ----
 $list->sortByFileSetDisplayOrder();
 ----
@@ -93,7 +93,7 @@ $list->sortByFileSetDisplayOrder();
 
 By default, permissions will be checked for every file retrieved in the result set. Ignoring permissions for the logged-in user is easy:
 
-[code,php]
+[source,php]
 ----
 $list->ignorePermissions();
 ----
@@ -102,7 +102,7 @@ $list->ignorePermissions();
 
 The FileList class has been completely rewritten in concrete5 version 7 as reliant on the http://doctrine-dbal.readthedocs.org/en/latest/reference/query-builder.html[Doctrine DBAL QueryBuilder]. You can grab the underlying QueryBuilder object in order to operate on it directly from any FileList object:
 
-[code,php]
+[source,php]
 ----
 $query = $list->getQueryObject();
 ----
@@ -115,7 +115,7 @@ It's easy to subclass the FileList object. http://www.concrete5.org/developers-b
 
 Once you have filtered your FileList object, you can use getResults() to get the list of File objects. Many times, however, you'll want to retrieve just few results at a time. For this, you'll want to use the Pagination object.
 
-[code,php]
+[source,php]
 ----
 $pagination = $list->getPagination();
 ----
@@ -130,21 +130,21 @@ If your FileList object is ignoring permissions, it simply returns a basic http:
 
 Once you have a Pagination object it's a simple matter to operate on it. You can get the total number of results
 
-[code,php]
+[source,php]
 ----
 print $pagination->getTotalResults();
 ----
 
 You can get the total number of pages:
 
-[code,php]
+[source,php]
 ----
 print $pagination->getTotalPages();
 ----
 
 You can determine whether paging is necessary
 
-[code,php]
+[source,php]
 ----
 $pagination->hasNexPage();
 $pagination->hasPreviousPage();
@@ -152,7 +152,7 @@ $pagination->hasPreviousPage();
 
 And you can get the current page's results:
 
-[code,php]
+[source,php]
 ----
 $pagination->setMaxPerPage(10)->setCurrentPage(2);
 $results = $pagination->getCurrentPageResults();
@@ -162,7 +162,7 @@ $results = $pagination->getCurrentPageResults();
 
 Common pagination output HTML is supported, including Bootstrap 2, Bootstrap 3, Basic Pagination, and Concrete5's default styling (which is heavily Bootstrap 3 inspired.)
 
-[code,php]
+[source,php]
 ----
 print $pagination->renderDefaultView(); // Outputs HTML for Bootstrap 3, useful in the Dashboard, etc…
 ----

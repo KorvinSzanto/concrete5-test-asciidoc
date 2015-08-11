@@ -10,7 +10,7 @@ A file named icon.png may be present at the root level in your package controlle
 
 Finally, every package has a controller.php file in its base directory. This file contains the information needed for your system to identify the package, install it, uninstall it, and optional custom code that this package adds to the Concrete5 startup routine. All other logic relating to what your package actually does should be located elsewhere. Here is an example package controller for a package that does nothing but install a custom block type.
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Concrete\Package\DocumentLibrary;
@@ -49,7 +49,7 @@ This file is very straightforward. First, we namespace it appropriately. All ite
 
 Next, we take care of making sure this file can't be browsed to directly in the browser with this line:
 
-[code,php]
+[source,php]
 ----
 defined('C5_EXECUTE') or die(_("Access Denied."));
 ----

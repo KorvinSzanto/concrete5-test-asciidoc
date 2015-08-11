@@ -4,7 +4,7 @@ It's a common task for a Concrete5 developer to create their own Dashboard pages
 
 When creating a dashboard page controller, make sure that it extends \Concrete\Core\Page\Controller\DashboardPageController, rather than \Concrete\Core\Page\Controller\PageController. Here's an example of a Dashboard page controller for a page that will be located at Dashboard > System & Settings > Game
 
-[code,php]
+[source,php]
 ----
 <?php
  
@@ -26,7 +26,7 @@ class Game extends DashboardPageController
 
 Any method within your Dashboard page controller has access to a protected $error variable defined within the DashboardPageController class. This error object is an instance of the http://concrete5.org/api/class-Concrete.Core.Error.Error.html[\Concrete\Core\Error\Error] object. Just add to the error object, and it'll be displayed in the page:
 
-[code,php]
+[source,php]
 ----
 public function view()
  {
@@ -48,7 +48,7 @@ image:http://www.concrete5.org/files/9714/2594/0053/dashboard1.png[Dashboard 1]
 
 Similarly, the $message and $success parameters are special variables that, when present in the view template, will be shown automatically in a nice outline.
 
-[code,php]
+[source,php]
 ----
 public function view()
  {
@@ -58,7 +58,7 @@ public function view()
 
 image:http://www.concrete5.org/files/4814/2594/0054/dashboard2.png[Dashboard 2]
 
-[code,php]
+[source,php]
 ----
 public function view()
  {
@@ -74,7 +74,7 @@ Use success, error and message messages to display to the user whether their act
 
 image:http://www.concrete5.org/files/3614/2594/0055/dashboard4.png[Dashboard 4]
 
-[code,php]
+[source,php]
 ----
 <form method="post" action="<?=$controller->action('submit')?>">
 <div class="ccm-dashboard-header-buttons btn-group">
@@ -91,7 +91,7 @@ If you've got a length form on a particular page, include the button footer with
 
 image:http://www.concrete5.org/files/3814/2594/0056/dashboard5.png[Dashboard 5]
 
-[code,php]
+[source,php]
 ----
 <form method="post" action="<?=$view->action('update_sitename')?>">
     <fieldset>

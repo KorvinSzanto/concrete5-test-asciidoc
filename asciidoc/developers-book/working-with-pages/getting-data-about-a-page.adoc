@@ -4,28 +4,28 @@ The following are some of the built-in properties always available about a page,
 
 Retrieve a page's name
 
-[code,php]
+[source,php]
 ----
 print $c->getCollectionName();
 ----
 
 Get its short description
 
-[code,php]
+[source,php]
 ----
 print $c->getCollectionDescription();
 ----
 
 Get the canonical date the page was created
 
-[code,php]
+[source,php]
 ----
 print $c->getCollectionDateAdded();
 ----
 
 Get the publicly changeable date (useful for treating pages like blog objects.)
 
-[code,php]
+[source,php]
 ----
 print $c->getCollectionDatePublic();
 ----
@@ -34,21 +34,21 @@ print $c->getCollectionDatePublic();
 
 It's also easy to retrieve a custom attribute about a page.
 
-[code,php]
+[source,php]
 ----
 $response = $c->getAttribute('attribute_handle');
 ----
 
 The $response in this case will be the standard response based on the type of attribute. Sometimes this will be simple:
 
-[code,php]
+[source,php]
 ----
 $response = $c->getAttribute('exclude_nav');
 ----
 
 Since The Exclude from Navigation attribute is a boolean attribute, $response will either be true or false.
 
-[code,php]
+[source,php]
 ----
 $response = $c->getAttribute('thumbnail');
 ----
@@ -59,7 +59,7 @@ The Elemental Full installation of sample content creates a "thumbnail" attribut
 
 Custom attributes types can return their data in ways that are meant to be presented to the end user. While the custom getAttribute() call returns the data in its mode programmatic state (e.g. returning file objects, address objects, etc…) it's easy to return the data in such a way that it can be quickly printed out to the end user.
 
-[code,php]
+[source,php]
 ----
 $response = $c->getAttribute('thumbnail', 'display');
 ----
@@ -70,7 +70,7 @@ This will return the thumbnail attribute using the image/file attribute types ge
 
 Here's an example taken from a theme's page template, that lists all the tags on a page, and makes it easy to link to them in a search interface.
 
-[code,php]
+[source,php]
 ----
 <?php
     $tags = $c->getAttribute('tags');
@@ -92,7 +92,7 @@ Here's an example taken from a theme's page template, that lists all the tags on
 
 It's easy to check to see if the page is currently being edited by a user.
 
-[code,php]
+[source,php]
 ----
 if ($c->isEditMode()) {
  
@@ -101,7 +101,7 @@ if ($c->isEditMode()) {
 
 === Retrieving all Blocks Objects on a Page.
 
-[code,php]
+[source,php]
 ----
 $blocks = $c->getBlocks();
 ----

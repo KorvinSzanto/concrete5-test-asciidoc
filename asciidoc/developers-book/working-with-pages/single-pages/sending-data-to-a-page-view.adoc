@@ -4,14 +4,14 @@ Once you have a single page and a controller, you'll want to make use of the lin
 
 Say we want to list photo albums on our media page. We have the PHP class Foo\Media\Album and we'll retrieve a list of these album objects when browsing to our media page
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/media/
 ----
 
 Here's our controller
 
-[code,php]
+[source,php]
 ----
 namespace Application\Controller\SinglePage;
 use Concrete\Core\Page\Controller\PageController;
@@ -30,7 +30,7 @@ That's it. The array of photo albums will now be available within the applicatio
 
 Let's take a look at our view.php file. Here's how we can link to a different method in our list of albums
 
-[code,php]
+[source,php]
 ----
 <ul>
 <?php
@@ -50,14 +50,14 @@ Let's break down what's happening here. For each entry in the albums array we pr
 
 If you click on one of these links, the URL will look like this
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/media/view_album/4
 ----
 
 If there's no view_album() method in the media controller, or there is but it doesn't have a parameter in it, the result will be a 404.
 
-[code,php]
+[source,php]
 ----
 public function view_album($albumID = null)
 {
@@ -73,7 +73,7 @@ Now, the $albumID variable and the $album variable will be available in the medi
 
 If you want to run a particular method on the current page, you don't need to include the single page path in the URL::to method. Just use the action() method on the $controller parameter that is automatically in the local scope. Here's how a form can submit back to the current page's "submit()" method in the controller:
 
-[code,php]
+[source,php]
 ----
 <form method="post" action="<?=$controller->action('submit')?>">
  

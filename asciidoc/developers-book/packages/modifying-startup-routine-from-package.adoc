@@ -1,6 +1,6 @@
 In addition to installing things like block types and themes, packages can inject custom code into the Concrete5 bootstrap routine. This can be very useful. For example, a statistics package might want to use the on_page_view event to track when pages are viewed and do something with that information. Hooking into the event is easy:
 
-[code,php]
+[source,php]
 ----
 \Events::addListener(
     'on_page_view',
@@ -13,7 +13,7 @@ In addition to installing things like block types and themes, packages can injec
 
 To make this event listener code run during the Concrete5 bootstrap routine, simply create a method in the controller.php named "on_start()" and add it there:
 
-[code,php]
+[source,php]
 ----
 public function on_start()
 {

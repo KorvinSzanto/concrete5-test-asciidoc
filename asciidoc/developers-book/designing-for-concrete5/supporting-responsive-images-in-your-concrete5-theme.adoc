@@ -10,7 +10,7 @@ Small, Medium and Large are the types added by Elemental. You can see them liste
 
 You can add more thumbnail types here, but it's probably smarter to add them in your installation process, if you're installing your theme via a package. From within your install() method of a theme package controller, the following code will create a particular thumbnail type, checking first if the object already exists:
 
-[code,php]
+[source,php]
 ----
 $small = \Concrete\Core\File\Image\Thumbnail\Type\Type::getByHandle('small');
 if (!is_object($small)) {
@@ -34,7 +34,7 @@ Let's use the thumbnail types in the following way: if a browser is greater than
 
 Now that we've decided how to use our responsive images, we can implement this by adding the following method and implementation to our PageTheme class:
 
-[code,php]
+[source,php]
 ----
 public function getThemeResponsiveImageMap()
 {
@@ -52,7 +52,7 @@ Now, any time an core image block is used in your theme or an image is placed in
 
 How does it work? In both of these examples, we're using the \Concrete\Core\Html\Image class to build the image tag for a particular file object. Check out the following code. *Note: in this code, $file is an object that we have specified in some way, that corresponds to a large image that's been uploaded to the file manager. It has multiple thumbnails now, one for each of the types we've already defined. These get created automatically on upload.*
 
-[code,php]
+[source,php]
 ----
 // $file, our file object.
 $image = \Core::make('html/image', array($file));

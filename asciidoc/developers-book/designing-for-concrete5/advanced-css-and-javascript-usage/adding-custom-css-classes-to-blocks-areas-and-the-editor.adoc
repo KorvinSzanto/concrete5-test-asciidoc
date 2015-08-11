@@ -10,7 +10,7 @@ We've had custom templates in concrete5 for a very long time. These give you alt
 
 Adding this method to the PageTheme class:
 
-[code,php]
+[source,php]
 ----
 public function getThemeAreaClasses()
 {
@@ -26,7 +26,7 @@ will make it so that any area named "Welcome" will have the "templatemo-team" cl
 
 Adding this method to the PageTheme class:
 
-[code,php]
+[source,php]
 ----
 public function getThemeBlockClasses()
 {
@@ -40,7 +40,7 @@ public function getThemeBlockClasses()
 
 will make it so that any Image block will have the "img-thumbnail" class available in the advanced dropdown of the Custom Design toolbar. Adding this method to the PageTheme class:
 
-[code,php]
+[source,php]
 ----
 public function getThemeEditorClasses()
 {

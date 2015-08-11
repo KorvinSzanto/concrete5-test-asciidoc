@@ -18,7 +18,7 @@ We used to specify these with $view->addHeaderItem() and $view->addFooterItem().
 
 Now, with the Asset, AssetGroup and AssetList classes found in the \Concrete\Core\Asset namespace, we can register these assets, including whether to minify or combine them on the fly, their versions and paths, and we can group them together. Requiring all of Redactor's assets on a page now requires just this line of code
 
-[code,php]
+[source,php]
 ----
 $this->requireAsset('redactor');
 ----
@@ -31,7 +31,7 @@ Sometimes themes provide assets. For example, this theme is bootstrap3 based, me
 
 In order to remove the duplicate bootstrap assets from this theme and fix conflicts that are keeping it from functioning fully, we add code to our PageTheme class to mark that these bootstrap assets are provided by the theme.
 
-[code,php]
+[source,php]
 ----
 public function registerAssets()
 {

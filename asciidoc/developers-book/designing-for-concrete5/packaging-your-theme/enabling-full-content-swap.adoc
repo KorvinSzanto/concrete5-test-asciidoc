@@ -10,7 +10,7 @@ This Concrete5 Content Import Format is used to describe the content and structu
 
 ==== Installing Dashboard Pages
 
-[code,php]
+[source,php]
 ----
 <concrete5-cif version="1.0">
     <singlepages>
@@ -28,7 +28,7 @@ This Concrete5 Content Import Format is used to describe the content and structu
 
 ==== Installing and Activating Themes
 
-[code,php]
+[source,php]
 ----
 <concrete5-cif version="1.0">
     <themes>
@@ -39,7 +39,7 @@ This Concrete5 Content Import Format is used to describe the content and structu
 
 ==== Installing Page Templates
 
-[code,php]
+[source,php]
 ----
 <concrete5-cif version="1.0">
     <pagetemplates>
@@ -76,7 +76,7 @@ Step 9 above is by far the most difficult. The XML created in the step before is
 
 Once you have your files in the content_files directory and a content.xml file in your package root, you'll need to mark the package as one that enables full content swap. You do this by adding this variable to your package controller.php
 
-[code,php]
+[source,php]
 ----
 protected $pkgAllowsFullContentSwap = true;
 ----

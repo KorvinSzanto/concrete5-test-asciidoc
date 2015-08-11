@@ -14,7 +14,7 @@ First, create a PHP object storing the thing you want.
 
 ==== File: packages/statistics/src/Entity/UserAgent.php
 
-[code,php]
+[source,php]
 ----
 <?php
  
@@ -56,7 +56,7 @@ class UserAgent
 
 To turn this into a Doctrine ORM entity, just add annotations above the relevant class and variables.
 
-[code,php]
+[source,php]
 ----
 <?php
  

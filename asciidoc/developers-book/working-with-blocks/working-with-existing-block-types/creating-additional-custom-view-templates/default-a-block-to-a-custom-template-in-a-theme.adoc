@@ -8,7 +8,7 @@ How does it work? Let's use the Image Slider customized default view template th
 
 First, create a custom template, packaged in my theme's package directory.
 
-[code,php]
+[source,php]
 ----
 mkdir packages/enterprise/blocks
 mkdir packages/enterprise/blocks/image_slider/
@@ -20,7 +20,7 @@ At this point, I've created a custom template named "Enterprise Image Slider" th
 
 My packaged theme needs to have a PageTheme class. If you're unfamiliar with this concept (which is completely new in 5.7) you should check out http://www.concrete5.org/developers-book/designing-for-concrete5/adding-grid-support-to-your-theme/enabling-grid-support-for-areas-and-layo/[Enabling Grid Support for Areas and Layouts], which describes it fully. Basically, a PageTheme class is an additional code file that documents certain capabilities and attributes that a theme has. This custom template default is just another one of those attributes. In our case, once we've created a PageTheme class for our Enterprise theme, we just add the following code to it:
 
-[code,php]
+[source,php]
 ----
 public function getThemeDefaultBlockTemplates()
 {

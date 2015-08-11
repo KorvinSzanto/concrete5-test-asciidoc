@@ -1,6 +1,6 @@
 Concrete5 includes the https://imagine.readthedocs.org/en/latest/[Imagine Image Processing Library] for working with images. Imagine is a OOP library for image manipulation built in PHP 5.3 using the latest best practices and thoughtful design. Imagine is accessible through the Image class:
 
-[code,php]
+[source,php]
 ----
 $imagine = \Image::open('/path/to/image.jpg');
 ----
@@ -9,7 +9,7 @@ That's it. Now you have an instance of an object of the \Imagine\Image\ImageInte
 
 Using Imagine to work on a Concrete5 File object is easy.
 
-[code,php]
+[source,php]
 ----
 $file = File::getByID(3);
 $version = $file->getApprovedVersion();
@@ -21,7 +21,7 @@ $image = Image::load($resource->read());
 
 Note: this requires 7.5 or greater
 
-[code,php]
+[source,php]
 ----
 $portrait = File::getByID(10);
 $version = $file->getVersionToModify(true); //forces the retrieval of a new version
@@ -37,7 +37,7 @@ $version->updateContents($image->get());
 
 If you're on a version before 5.7.5, the API is a little more cumbersome. Instead of simply calling updateContents() (a new method in 5.7.5), you'll have to call this instead:
 
-[code,php]
+[source,php]
 ----
 // Now let's update the image
 $storage = $version->getFile()->getFileStorageLocationObject();

@@ -34,7 +34,7 @@ This is an instance of the http://concrete5.org/api/class-Concrete.Core.Block.Vi
 
 Here is the HTML block composer template:
 
-[code,php]
+[source,php]
 ----
 <div class="control-group">
     <label class="control-label"><?=$label?></label>

@@ -10,7 +10,7 @@ Now I'm going to put two files into this directory. The first is going to repres
 
 Next, I'm going to add the most important file in a package to the directory. This is controller.php. This file specifies information about the package, including the current version, its name, its handle again, and it takes care of installing, upgrading and uninstalling the package. You don't always need an uninstall routine – since packages are generally pretty good at cleaning up after themselves when they're uninstalled from Concrete5. First, I'm going to create the class, what it extends from and its namespace.
 
-[code,php]
+[source,php]
 ----
 namespace Concrete\Package\ThemeUrbanic;
  
@@ -27,14 +27,14 @@ class Controller extends Package
 
 Notice the namespace. In general, anything that had a namespace prior to going into a Concrete5 package is going to have a new namespace, beginning with
 
-[code,php]
+[source,php]
 ----
 \Concrete\Package\YourCamelCasedPackageHandle
 ----
 
 We'll talk more about this in a second. I'm also including a reference to the \Concrete\Core\Page\Theme\Theme method in Concrete5, because I'm going to use this class to install the theme through PHP. Now I'm going to add some metadata about the package. Add these to the top of your class, inside the class itself.
 
-[code,php]
+[source,php]
 ----
 protected $pkgHandle = 'theme_urbanic';
 protected $appVersionRequired = '5.7.1';
@@ -55,7 +55,7 @@ Notice the $pkgHandle parameters matches the directory that we're using. Next, w
 
 Now I'm going to write the installation routine. This is very simple.
 
-[code,php]
+[source,php]
 ----
 public function install()
 {
@@ -70,14 +70,14 @@ Everything that can be installed via the Package format will have some mechanism
 
 Now let's move the theme from our application/themes/ directory into the package's directory. Before we can try to install this package, we need to make one more modification. Remember I mentioned namespaces earlier, and how packages change the prefix for namespaces on items that use namespaces? We have one such item in our Urbanic theme – the PageTheme class. Open packages/theme_urbanic/themes/urbanic/page_theme.php and change this:
 
-[code,php]
+[source,php]
 ----
 namespace Application\Theme\Urbanic;
 ----
 
 to this:
 
-[code,php]
+[source,php]
 ----
 namespace Concrete\Package\ThemeUrbanic\Theme\Urbanic;
 ----

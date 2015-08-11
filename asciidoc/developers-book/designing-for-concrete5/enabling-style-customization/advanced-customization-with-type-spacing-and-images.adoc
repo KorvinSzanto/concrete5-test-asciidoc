@@ -17,7 +17,7 @@ These four different areas use four different variable types.
 
 So let's add support for these new variable types into our style.xml, and reorganize it a little:
 
-[code,php]
+[source,php]
 ----
 <?xml version="1.0"?>
 <styles version="1.0">
@@ -73,44 +73,44 @@ In the XML above, our Body style has the style type of Type. Since this style ha
 
 We can use as many of these variables or as few as we want. Let's find our body style in the .less file. This looks like a good start:
 
-[code,php]
+[source,php]
 ----
 body {
 background-color: #ffffff;
 font-family:  'Open Sans', Arial, Helvetice Neue, sans-serif;
 font-size: 12px;
  
-font-weight: 300; 
-font-style: normal; 
+font-weight: 300;
+font-style: normal;
 -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 -webkit-text-size-adjust: 100%;
 ----
 
 }
 
-[code,php]
+[source,php]
 ----
 h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neue, sans-serif; }
 ----
 
 Let's modify some of these properties:
 
-[code,php]
+[source,php]
 ----
 body {
 background-color: #ffffff;
 font-family:  @body-type-font-family;
 font-size: @body-type-font-size;
  
-font-weight: @body-type-font-weight; 
-font-style: @body-type-font-style; 
+font-weight: @body-type-font-weight;
+font-style: @body-type-font-style;
 -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 -webkit-text-size-adjust: 100%;
 ----
 
 }
 
-[code,php]
+[source,php]
 ----
 h1, h2, h3, h4, h5, h6, span, p { font-family: @body-type-font-family; }
 ----
@@ -137,7 +137,7 @@ With @body-type-font-size, and define our @body-type-font-size as 14px.
 
 Now that we've got our variables added to our LESS file, let's place the relevant definitions in our defaults.less:
 
-[code,php]
+[source,php]
 ----
 // Body
 @body-type-font-family: 'Open Sans';
@@ -153,10 +153,10 @@ We've already done the Color Style Type, but it might be useful to combine anoth
 
 First, we'll find the Team style section of the LESS file:
 
-[code,php]
+[source,php]
 ----
 .templatemo-team {
-    background: url('../images/background.png') ; 
+    background: url('../images/background.png') ;
     font-family:  'Open Sans', sans-serif;
     min-height:590px;
     color:#ffffff;
@@ -165,11 +165,11 @@ First, we'll find the Team style section of the LESS file:
 
 Let's add background-color style, for the team-background color type.
 
-[code,php]
+[source,php]
 ----
 .templatemo-team {
     background-color: @team-background-color;
-    background: url('../images/background.png') ; 
+    background: url('../images/background.png') ;
     font-family:  'Open Sans', sans-serif;
     min-height:590px;
     color:#ffffff;
@@ -178,7 +178,7 @@ Let's add background-color style, for the team-background color type.
 
 Next, let's swap out the background image:
 
-[code,php]
+[source,php]
 ----
 .templatemo-team {
     background-color: @team-background-color;
@@ -191,7 +191,7 @@ Next, let's swap out the background image:
 
 Finally, we'll define these two variables in our defaults.less:
 
-[code,php]
+[source,php]
 ----
 // Team
 @team-background-color: #82BBC8;

@@ -16,14 +16,14 @@ From version 5.7 and onward, concrete5 is adopting a modified naming standard ba
 
 All core libraries adhere to PSR-4 with *no* modifications. What does that mean? That means that our namespaced core libraries like the Page class
 
-[code,php]
+[source,php]
 ----
 \Concrete\Core\Page\Page
 ----
 
 Can be found at
 
-[code,php]
+[source,php]
 ----
 concrete/src/Page/Page.php
 ----
@@ -38,35 +38,35 @@ For classes that do not exist within the src/ directory (such as block controlle
 
 What does that mean? The blocks directory and its contents still looks the same as concrete5 before 5.7. For example, the Page List block's controller is still located at
 
-[code,php]
+[source,php]
 ----
 concrete/blocks/page_list/controller.php
 ----
 
 If you were strictly following PSR-4, you would need to name your class
 
-[code,php]
+[source,php]
 ----
 controller
 ----
 
 inside the name space
 
-[code,php]
+[source,php]
 ----
 \Concrete\Block\page_list
 ----
 
 This is ugly and causes other problems. So instead, when we request the class
 
-[code,php]
+[source,php]
 ----
 \Concrete\Block\PageList\Controller
 ----
 
 We *first* check to see if
 
-[code,php]
+[source,php]
 ----
 concrete/blocks/PageList/Controller.php
 ----
@@ -75,7 +75,7 @@ exists (since that is the default PSR-4 autoloading behavior.)
 
 If it does not (and it won't, for blocks, attributes, single page controllers, etc...) – then we uncamelcase using our own methods, starting at the item after blocks. Backslashes become directory separatores, and camelcasing becomes underscores.
 
-[code,php]
+[source,php]
 ----
 concrete/blocks/page_list/controller.php
 ----

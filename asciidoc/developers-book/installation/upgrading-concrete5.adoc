@@ -34,7 +34,7 @@ If you want to minimize disk space usage and don't need to use the web interface
 
 If you have copied the concrete directory over the old directory, and now wish to upgrade, but forgot to login prior to copying the directory (and you can't login due to the upgrade causing issues since it has not yet run) you can momentarily disable the permissions protection by modifying a configuration value on the web server. Create a file named concrete.php in the application/config/ directory, or open it if it already exists. If the file is empty, copy this into it:
 
-[code,php]
+[source,php]
 ----
 <?php
 return array(

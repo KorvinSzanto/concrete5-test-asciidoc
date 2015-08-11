@@ -4,7 +4,7 @@ image:/files/4014/2508/3361/gridcontainer.png[grid container]
 
 The bottom three images are in a three column layout. Notice how they're set in from the edge of the page? They are centered within the browser. The top image, however, is part of the image slider block, which disables the grid container, so it can extend the entire width of the page. Disabling the grid container is something that's easy to do at the block type level. Simply add this line of code to your block's controller.php class:
 
-[code,php]
+[source,php]
 ----
 protected $btIgnorePageThemeGridFrameworkContainer = true;
 ----

@@ -10,7 +10,7 @@ There are two additional tables, however: btSurveyOptions and btSurveyResults. T
 
 Like the btSurvey table, the btSurveyOptions and btSurveyResults tables are defined in db.xml. These are just separate
 
-[code,php]
+[source,php]
 ----
 <schema version="0.3">
     <table name="btSurvey">
@@ -40,7 +40,7 @@ Each of these additional tables also contains a bID column, which is used to joi
 
 The survey block implements a save() method. When it calls parent::save($args) (where $args is the POST array), that will automatically populate the btSurvey table. But since the survey results are also submitted at this time, additional custom code needs to be written to populate the btSurveyOptions table. This is that code:
 
-[code,php]
+[source,php]
 ----
 public function save($args)
 {
@@ -66,7 +66,7 @@ This is pretty self-explanatory. The save() method automatically gets the POSTed
 
 The duplicate() method is run on a block any time a block on an approved version of a page is edited. THe block is duplicated behind the scenes, receiving a new bID, and storing its data in its $btTable under the new $bID (while retaining the old data.) This ensures that if a page is rolled back to a previous version, the previous block still has its data available (under the old $bID). Most blocks won't need to implement their own duplicate() method, as Concrete5 takes care of this automatically – but blocks that depend on this bID parameter to map to their own custom additional database tables will need to extend the built-in duplicate() method. Here's how the survey block does it:
 
-[code,php]
+[source,php]
 ----
 public function duplicate($newBID)
 {
@@ -102,7 +102,7 @@ The duplicate() method receives a single argument: the new block ID for the bloc
 
 Similar to duplicate(), most block's won't need to implement their own delete() method, since Concrete5 takes care of clearing out the one row of data found in a block's $btTable database table when that block is officially deleted. Any developer working with a block that uses multiple tables will want to extend this method, however, to ensure that all their data is cleaned up when a block is deleted. Here's how the survey block does it:
 
-[code,php]
+[source,php]
 ----
 public function delete()
 {

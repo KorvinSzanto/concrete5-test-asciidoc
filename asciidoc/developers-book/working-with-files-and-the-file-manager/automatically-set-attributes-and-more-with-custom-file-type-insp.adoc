@@ -6,7 +6,7 @@ Concrete5 uses attributes for a lot of things. Usually, these attributes are set
 
 A File Type Inspector is a bit of custom code that runs every time a file of a certain type is uploaded or rescanned through the Dashboard File Manager. This code can do anything, including set custom attributes. Concrete5 ships with two inspectors, an Image inspector and an FLV (Flash video) inspector (the latter being more of a proof of concept.) Here's what the Image inspector (found at concrete/src/File/Type/Inspector/ImageInspector.php) looks like:
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Concrete\Core\File\Type\Inspector;
@@ -59,7 +59,7 @@ image:http://www.concrete5.org/files/9614/3820/0754/id3_composer.png[image]
 
 We'll create a pretty standard package controller for our package.
 
-[code,php]
+[source,php]
 ----
 <?php
  
@@ -95,7 +95,7 @@ There's nothing special about this package yet – no custom code that register
 
 Let's register our custom inspector now. To do this, we're going to add a method named on_start() to our package. If a package includes an on_start method that method will automatically be run early in the concrete5 startup routine, for every package that's installed. Here's our on_start method:
 
-[code,php]
+[source,php]
 ----
 public function on_start()
 {
@@ -109,7 +109,7 @@ First, we include all the libraries for our ID3 reader class. These are found in
 
 By default, custom file type inspectors are loaded from packages/your_package/src/File/Type/Inspector/CustomInspector.php, where "Custom" is the camelcased version of the fourth parameter above. So in our case we'd be loading from packages/id3_reader/src/File/Type/Inspector/AudioInspector.php, with a namespace of \Concrete\Package\Id3Reader\Src\File\Type\Inspector\AudioInspector. However, if we want to remove the \Src from the namespace and make things a little bit nicer, we can add this line of code to our class.
 
-[code,php]
+[source,php]
 ----
 protected $pkgAutoloaderMapCoreExtensions = true;
 ----
@@ -120,7 +120,7 @@ Now, our class's name will be Concrete\Package\Id3Reader\File\Type\Inspector\Aud
 
 Finally, in the AudioInspector.php file, we create our inspector class:
 
-[code,php]
+[source,php]
 ----
 <?php
 namespace Concrete\Package\Id3Reader\File\Type\Inspector;

@@ -4,7 +4,7 @@ Registering an asset used by a custom block is easy. For example, let's say we w
 
 Then, we register the JavaScript and CSS files used by the library. This should be done in our block controller's on_start() method, which we may have to create.
 
-[code,php]
+[source,php]
 ----
 public function on_start()
 {
@@ -22,7 +22,7 @@ public function on_start()
 
 Next, we group the asset into a single asset group.
 
-[code,php]
+[source,php]
 ----
 $al->registerGroup('mediaelement', array(
     array('css', 'mediaelement'),
@@ -33,7 +33,7 @@ $al->registerGroup('mediaelement', array(
 
 Finally, we require the asset from within a registerViewAssets() method in our block controller:
 
-[code,php]
+[source,php]
 ----
 public function registerViewAssets()
 {

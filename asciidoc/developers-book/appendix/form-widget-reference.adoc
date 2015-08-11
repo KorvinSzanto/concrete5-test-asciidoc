@@ -4,7 +4,7 @@ The following service objects offer an easy way to build HTML input elements and
 
 Some HTML helper functions exist as a part of the Form service.
 
-[code,php]
+[source,php]
 ----
 $html = Core::make('helper/form');
 ----
@@ -17,7 +17,7 @@ http://concrete5.org/api/class-Concrete.Core.Form.Service.Form.html[API Referenc
 
 Create a custom widget that allows you to select a color.
 
-[code,php]
+[source,php]
 ----
 $html = Core::make('helper/form/color');
 ----
@@ -30,7 +30,7 @@ http://concrete5.org/api/class-Concrete.Core.Form.Service.Widget.Color.html[API 
 
 Create a custom widget that allows you to choose dates on a calendar, with an optional time..
 
-[code,php]
+[source,php]
 ----
 $html = Core::make('helper/form/date_time');
 ----
@@ -43,7 +43,7 @@ http://concrete5.org/api/class-Concrete.Core.Form.Service.Widget.DateTime.html[A
 
 Create a custom widget that allows you to choose a page from Concrete5's sitemap or page search.
 
-[code,php]
+[source,php]
 ----
 $html = Core::make('helper/form/page_selector');
 ----
@@ -56,7 +56,7 @@ http://concrete5.org/api/class-Concrete.Core.Form.Service.Widget.PageSelector.ht
 
 Create a custom widget 1-5 star rating widget.
 
-[code,php]
+[source,php]
 ----
 $html = Core::make('helper/form/rating');
 ----
@@ -69,7 +69,7 @@ http://concrete5.org/api/class-Concrete.Core.Form.Service.Widget.Rating.html[API
 
 Create a custom widget that allows you to choose Concrete5 users from a search interface.
 
-[code,php]
+[source,php]
 ----
 $html = Core::make('helper/form/user_selector');
 ----
@@ -82,7 +82,7 @@ http://concrete5.org/api/class-Concrete.Core.Form.Service.Widget.UserSelector.ht
 
 Create a custom widget that allows you to choose files from the file manager. Choose from all files or limit by type.
 
-[code,php]
+[source,php]
 ----
 $html = Core::make('helper/concrete/file_manager');
 ----

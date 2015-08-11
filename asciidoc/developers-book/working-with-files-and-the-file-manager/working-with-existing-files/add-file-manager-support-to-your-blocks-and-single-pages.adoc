@@ -4,12 +4,12 @@ The most common way a developer will access the File Manager and File objects ha
 
 Let's say we have a form template used in a Contact Information block. This block stores the first name and last name of a particular user. Here's what the template might look like.
 
-[code,php]
+[source,php]
 ----
 <div class="form-group">
     <label class="control-label" for="first_name">First Name</label>
     <input class="form-control" name="first_name" value="<?php echo $first_name?>" />
- </div> 
+ </div>
 <div class="form-group">
     <label class="control-label" for="last_name">Last Name</label>
     <input class="form-control" name="last_name" value="<?php echo $last_name?>" />
@@ -22,7 +22,7 @@ image:http://www.concrete5.org/files/2514/3820/0752/ci1.png[image]
 
 but we want to add a photo as well. Rather than adding a URL, or rolling our own, we just add this to the HTML.
 
-[code,php]
+[source,php]
 ----
 <div class="form-group">
     <label class="control-label">Photo</label>
@@ -47,7 +47,7 @@ You'll need to add the photoID field to the database table of your block. This i
 
 If your block's db.xml file begins with , this is how you repesent a file column in your block's database table.
 
-[code,php]
+[source,php]
 ----
 <field name="photoID" type="I" size="10">
     <default value="0" />
@@ -59,7 +59,7 @@ If your block's db.xml file begins with , this is how you repesent a file column
 
 If your block's db.xml file begins with , you're using a new XML format. This is how you represent a file column in this db.xml file:
 
-[code,php]
+[source,php]
 ----
 <field name="photoID" type="integer">
   <unsigned/>
@@ -69,7 +69,7 @@ If your block's db.xml file begins with , you're using a new XML format. This is
 
 Finally, refresh the block type from the Dashboard > Stacks & Blocks > Block Types Dashboard page, in order to get the new photoID column to appear in the database. If your column matches and you don't have a custom save() routine in your Block controller, the file should save automatically. If you do have a custom save() routine, you can use this opportunity to ensure that you get an integer value into the proper column
 
-[code,php]
+[source,php]
 ----
 public function save($args)
 {
@@ -82,14 +82,14 @@ public function save($args)
 
 We start this documentation with link:#[Retrieving file Objects Programmatically] because we need to understand that in order to support edit mode for blocks that use files. When editing a block that uses the File Manager Service, we need to grab the currently selected file and send it into the instance of the Service. In our block above, the 'photoID' parameter is the one we're sending into the POST, and it's the name of our file column in the database, which means the numerical File ID for photoID will be automatically sent into our block's edit template. Here's how we pass that data into the File Manager Service if it exists.
 
-[code,php]
+[source,php]
 ----
 <?php
     $photo = false;
     if ($photoID) {
         $photo = \File::getByID($photoID);
     }
-?>      
+?>
 <div class="form-group">
     <label class="control-label">Photo</label>
     <?php
@@ -105,7 +105,7 @@ Simply pass the $photo File object into the file() method as the fourth argument
 
 In the above examples we use the file() method on the File Manager Service. This enables any file in the file manager to be chosen. We can limit files by type by using different methods
 
-[code,php]
+[source,php]
 ----
 <?php
      // Only allow images to be chosen
@@ -121,7 +121,7 @@ The above example shows how easy it is to embed a File Manager selector form ele
 
 ==== Basic Example
 
-[code,php]
+[source,php]
 ----
 <a href="#" data-launch="file-manager">Select File</a>
 <script type="text/javascript">
@@ -131,8 +131,8 @@ $(function() {
         ConcreteFileManager.launchDialog(function (data) {
             alert(data.fID);
         });
-    });     
-}); 
+    });
+});
 </script>
 ----
 
@@ -142,7 +142,7 @@ In this example, if the file with the ID of 3 is clicked, the File Manager will 
 
 An additional method makes it easy to retrieve a JSON object populated with details about the selected file.
 
-[code,php]
+[source,php]
 ----
 <a href="#" data-launch="file-manager">Select File</a>
 <script type="text/javascript">
@@ -155,8 +155,8 @@ $(function() {
                 var file = r.files[0];
             });
         });
-    });     
-}); 
+    });
+});
 </script>
 ----
 
@@ -166,7 +166,7 @@ The file object will contain a number of useful properties about the selected fi
 
 Selecting multiple files is similarly simple.
 
-[code,php]
+[source,php]
 ----
 <a href="#" data-launch="file-manager">Select File</a>
 <script type="text/javascript">
@@ -176,10 +176,10 @@ $(function() {
         ConcreteFileManager.launchDialog(function (data) {
             console.log(data.fID); // With multiple selection this will ALWAYS be a JS array.
         });
-    });     
+    });
 }, {
     multipleSelection: true
-}); 
+});
 </script>
 ----
 

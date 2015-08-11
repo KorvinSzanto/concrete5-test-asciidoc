@@ -26,14 +26,14 @@ Copy all js, css, fonts, images directories into the theme's directory. Now we n
 
 So:
 
-[code,php]
+[source,php]
 ----
 src="js/file.js"
 ----
 
 becomes
 
-[code,php]
+[source,php]
 ----
 src="<?php echo $view->getThemePath()?>/js/file.js"
 ----
@@ -42,7 +42,7 @@ Add the required PHP to the header and footer of your page.
 
 Add:
 
-[code,php]
+[source,php]
 ----
  <?php Loader::element('header_required')?>
 ----
@@ -51,7 +51,7 @@ in the HEAD tag (and make sure to remove title, various meta tags used by concre
 
 Add:
 
-[code,php]
+[source,php]
 ----
 <?php Loader::element('footer_required')?>
 ----
@@ -64,7 +64,7 @@ We need to add a container DIV with the proper classes around the content in the
 
 Add a DIV around the content of the page (typically right after the opening of the body tag and before the closing of the body tag) and give it this class
 
-[code,php]
+[source,php]
 ----
 <div class="<?php echo $c->getPageWrapperClass()?>">
 ----
@@ -75,7 +75,7 @@ Now we can make editable areas.
 
 Choose some content that you want to remove in order to make editable, and replace it with this:
 
-[code,php]
+[source,php]
 ----
 <?php
     $a = new Area('Area Name');

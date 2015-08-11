@@ -6,7 +6,7 @@ Concrete5's style customizer allows theme developers to group their theme's LESS
 
 Specifying this information about a preset is as easy as adding a couple additional variables to the LESS variables file. The easiest way to understand these variables is to view an example of them:
 
-[code,php]
+[source,php]
 ----
 @preset-name: "Urbanic Regular";
 @preset-icon: concrete-icon(#ffffff, #ff7600, #333333);
@@ -17,14 +17,14 @@ The first variable is simple: @preset-name describes the name of the preset. @pr
 
 Let's paste this information into the presets file. Then let's create the preset fonts file, and move the Open Sans font from within the HTML of the theme itself into this fonts file. Finally, in order to get this font preset file to work, we need to include it in our theme's LESS file:
 
-[code,php]
+[source,php]
 ----
 @import ~"@{preset-fonts-file}";
 ----
 
 Now let's create a second preset. First, we duplicate the defaults.less file. We're going to call this preset "Forest Green". We change some of the various parameters:
 
-[code,php]
+[source,php]
 ----
 @preset-name: "Forest Green";
 @preset-icon: concrete-icon(#ffffff, #36FF3C, #154600);
@@ -47,7 +47,7 @@ Now let's create a second preset. First, we duplicate the defaults.less file. We
 
 And let's change the fonts file as well:
 
-[code,php]
+[source,php]
 ----
 @import url(//fonts.googleapis.com/css?family=Oswald:300,300italic);
 ----

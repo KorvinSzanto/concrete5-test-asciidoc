@@ -13,7 +13,7 @@ The pages within the concrete5 dashboard are another example of single pages. We
 
 Let's say we're using Concrete5 to build a social networking tool, and we need a page that allows the logged-in user to upload pictures. We want this page to be available at
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/index.php/media/
 ----
@@ -38,21 +38,21 @@ Want to change this? You can. If you need more flexible control over a single pa
 
 If you anticipate having multiple single pages in a particular section of your site, you can create an entire folder for your single page and its children. For example, instead of creating this:
 
-[code,php]
+[source,php]
 ----
 application/single_pages/media.php
 ----
 
 Create this:
 
-[code,php]
+[source,php]
 ----
  application/single_pages/media/view.php
 ----
 
 And add the single page in the same way above. Your single page will still be viewable at /media, but you'll be able to add other pages beneath that path over time
 
-[code,php]
+[source,php]
 ----
 application/single_pages/media/add.php
 application/single_pages/media/organize.php
@@ -64,14 +64,14 @@ These single pages will be available at http://yoursite.com/index.php/media/add 
 
 You can use single pages to extend existing Concrete5 functionality, like the dashboard. Say you want to add another page into the Concrete5 dashboard for some custom business forms. You want this form to be available at
 
-[code,php]
+[source,php]
 ----
 http://www.yoursite.com/index.php/dashboard/my_business_forms/
 ----
 
 Just add
 
-[code,php]
+[source,php]
 ----
 application/single_pages/dashboard/my_business_forms.php
 ----

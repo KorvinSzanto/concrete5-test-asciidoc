@@ -4,7 +4,7 @@ This is not always the case, however. For example, what if you're developing a c
 
 Consider this form, in a single page template. This will post back to the submit() method in the single page controller.
 
-[code,php]
+[source,php]
 ----
 <form method="post" enctype="multipart/form-data" action="<?=$view->action('submit')?>">
     <div class="form-group">
@@ -19,7 +19,7 @@ Consider this form, in a single page template. This will post back to the submit
 
 This is a standard form for uploading files in PHP. This file will be posted in the $_FILES array to the submit() method, per the http://php.net/manual/en/features.file-upload.php[PHP file uploading guidelines]. Here is our submit method
 
-[code,php]
+[source,php]
 ----
 public function submit()
 {
@@ -30,7 +30,7 @@ public function submit()
 
 Normally, we would use something like move_uploaded_file() to move the file to a file storage directory, then have to save the filename somewhere. And we wouldn't know anything about the file, or really be able to work with it in an extensible way. But if we import the file into the file manager, we'll get a File object back, which gives us lots of functionality.
 
-[code,php]
+[source,php]
 ----
 public function submit()
 {
@@ -47,7 +47,7 @@ That's it! Assuming a successful file upload, $result will be an instance of the
 
 Unfortunately, we can't always assume a successful file upload. Sometimes users attempt to upload files with disallowed file extensions, or something goes wrong on the server like we run out of space, or the file is too large. In these instances we need to provide feedback to the user.
 
-[code,php]
+[source,php]
 ----
 public function submit()
 {
@@ -66,7 +66,7 @@ public function submit()
         $error = $_FILES['photo']['error'];
     }
  
-    $this->set('errorMessage', \Concrete\Core\File\Importer::getErrorMessage($error));                
+    $this->set('errorMessage', \Concrete\Core\File\Importer::getErrorMessage($error));
 }
 ----
 
@@ -76,7 +76,7 @@ This is pretty self-explanatory. First, we seed the $error code variable with th
 
 If we want to handle upload permissions as well as errors, we need to add a little bit more code to our example. In this example, we're only going to allow file uploads if the user has access to the file manager, and then we're going to check permissions against the file extension to ensure that the extension is also something allowed by the user.
 
-[code,php]
+[source,php]
 ----
 public function submit()
 {
@@ -102,7 +102,7 @@ public function submit()
             $error = $_FILES['photo']['error'];
         }
  
-        $this->set('errorMessage', \Concrete\Core\File\Importer::getErrorMessage($error));                
+        $this->set('errorMessage', \Concrete\Core\File\Importer::getErrorMessage($error));
     } else {
         $this->set('errorMessage', 'You do not have access to add files to the file manager.');
     }
